@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Un document en HTML5 écrit avec Visual Studio</title>
+</head>
+<body>
+	<h1>Titre de niveau 1</h1>
+	<p align="center">Corp du document HTML5</p><br>
+	<b>texte en gras</b><br>
+	<i>texte en italique</i><br>
+	<u>texte souligné</u><br>
+	<sup>texte en exposant</sup><br>
+	<sub>texte en indice</sub><br>
+	<ol><!--Ordonnées -->
+		<li>Chrome</li>
+		<li>Mozilla</li>
+		<li>Internet Explorer</li>
+	</ol><br>
+	<ul><!--Non ordonées -->
+		<li>Chrome</li>
+		<li>Mozilla</li>
+		<li>Internet Explorer</li>
+	</ul>
+	<!--Ajouter des liens/ancres-->
+	<a href="#la">Par la</a>
+	<br>
+	<a href="https://www.w3schools.com/">Le super site de l'ecole W3 Schools pour apprendre que sera ouvert sur la même page</a>
+	<br>
+	<a href="https://www.w3schools.com/" targer="_blank">Le super site de W3 Schools pour apprendre qui sera ouvert sur une autre page</a>
+	<br>
+	<a href="page2.html">Lien dans le même dossier</a>
+	<br>
+	<a href="dossier/page2.html">Lieu dans un dossier fils</a>
+	<br>
+	<a href="../page2.html">Lien vers un dossier père</a>
+	<br>
+	<a href="../dossier1/page2.html">Lien vers un dossier adjacent</a>
+	<br>
+	<a href="memento_html.pdf">Un fichier pdf à télécharger</a>
+	<br>
+	<p id="la">C'est la</p>
+	<br>
+	<img src="images/google.png" alt="Image google" title="Google">
+	<p style="color: red;">Test</p>
+	<br>
+
+	<!--Rajouter de l'audio :-->
+	<audio controls>
+		<source src="music.ogg" type="audio/ogg">
+		<source src="music.mp3" type="audio/mp3">
+		Votre navigateur ne supporte pas les éléments audios.
+	</audio>
+	<br>
+	<!--Rajouter des vidéos play/pause:-->
+	<video width="320" height="240" controls>
+		<source src="movie.mp4" type="video/mp4">
+		<source src="movie.ogg" type="video/ogg">
+		Votre navigateur ne supporte pas les videos.
+	</video>
+	<br>
+	<!--Rajouter des vidéos autoplay/pause:-->
+	<video width="320" height="240" controls autoplay>
+		<source src="movie.mp4" type="video/mp4">
+		<source src="movie.ogg" type="video/ogg">
+	</video>
+	<br>
+	<!--Rajouter des vidéos Youtube:-->
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/mP_fnttJ5g0" frameborder="0" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
+	
+</body>
+</html>
