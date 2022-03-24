@@ -1,0 +1,68 @@
+li ul, li em{
+    position: absolute;
+    left: -9999px;
+}
+
+li:focus ul, li:active ul{
+    left: 0em;
+    right: 0em;
+}
+
+li:focus em,li:active em {/* closes (li looses focus)*/
+  right:0em;
+  left:auto;
+}
+
+ul{
+    margin: 0px;
+    padding: 0px;
+}
+
+ul li{
+    position: relative;
+    display: inline-block;
+    margin: 0 30px;
+    padding: 0 0.5em;
+    background: transparent;
+}
+
+li li{
+    display: block;
+}
+
+*{
+    margin: 5px 0px 0px 0px;
+    padding: 0px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.deroulant{
+    display: inline-block;
+    color: rgb(90, 86, 86);
+    border-bottom: 2px solid transparent;
+    padding: 10px 0px;
+}
+
+.deroulant:hover{
+    color: rgb(23, 180, 233);
+    border-bottom: 2px solid blue;
+}
+
+.sous{
+    align-items: center;
+    box-shadow: 0px 1px 2px white;
+    background-color: grey;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+
+.sous li{
+    float: none;
+    width: 100%;
+    text-align: left;
+}
+
+
+
