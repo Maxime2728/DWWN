@@ -13,9 +13,17 @@ li:focus em,li:active em {/* closes (li looses focus)*/
   left:auto;
 }
 
+*{
+    margin: 5px 0px 0px 0px;
+    padding: 0px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 ul{
     margin: 0px;
     padding: 0px;
+    list-style-type: none;
 }
 
 ul li{
@@ -26,22 +34,22 @@ ul li{
     background: transparent;
 }
 
-li li{
-    display: block;
+ul::after{
+    content: "";
+    display: table;
+    clear: both;
 }
 
-*{
-    margin: 5px 0px 0px 0px;
-    padding: 0px;
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+li li{
+    display: block;
 }
 
 .deroulant{
     display: inline-block;
     color: rgb(90, 86, 86);
     border-bottom: 2px solid transparent;
-    padding: 10px 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .deroulant:hover{
@@ -52,7 +60,7 @@ li li{
 .sous{
     align-items: center;
     box-shadow: 0px 1px 2px white;
-    background-color: grey;
+    /* background-color: rgb(255, 255, 255); */
     position: absolute;
     width: 100%;
     z-index: 1000;
@@ -62,6 +70,14 @@ li li{
     float: none;
     width: 100%;
     text-align: left;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 0px;
+}
+
+.sous li:hover{
+    color: rgb(23, 180, 233);
+    background-color: lightgray;
 }
 
 

@@ -1,7 +1,62 @@
-*{
-    background-image: "images/background.png";
+body{
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: monospace, serif, sans-serif;
+}   
+#grille{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    background-color: gray;
+    width: 70%;
+    height: 2000px;
+    margin: auto;
+    border: 3px solid black;
 }
 
-h1{
+.content{
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+header{
+    background-color: rgba(255, 135, 0, 0.95);
+    opacity: 65%;
+    grid-column: 1/span 3;
+}
+
+/* header > .logo{
+    
+} */
+
+header > .myuka{
+    margin-top: 5px;
+    color: rgba(255, 20, 0, 1);
+    font-size: 51px !important;
+    font-family: 'Lobster', cursive;
+    opacity: 100%;
+    width: 200px;
     text-align: center;
+    transform: translate(100%, 50%);
+}
+
+header > .formulaire{
+    opacity: 100%;
+    color: black;
+    width: 200px;
+    text-align: center;
+    float: right;
+}
+
+article{
+    background-color: cadetblue;
+    grid-column: 1/4;
+}
+
+footer{
+    background-color: blueviolet;
+    grid-column: 1/span 3;
 }

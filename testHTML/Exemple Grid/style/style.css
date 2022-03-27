@@ -1,0 +1,54 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+#grille{
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(2, 100px);
+    grid-auto-flow: column;
+    height: 500px;
+    width: 90%;
+    margin: auto;
+    background-color: white;
+}
+
+#grille div{
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    border: 1px solid black;
+}
+.un{
+    background-color: #f90;
+}
+
+.deux{
+    background-color: #fc0;
+}
+
+.trois{
+    background-color: #f96;
+}
+
+.quatre{
+    background-color: #fc6;
+}
+
+.cinq{
+    background-color: #fc9;
+}
+.six{
+    background-color: #f6f;
+}
+
+.sept{
+    background-color: #f9f;
+}
+
+.huit{
+    background-color: #fcf;
+}
+
