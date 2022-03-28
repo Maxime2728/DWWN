@@ -8,20 +8,51 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"></head>
 <body>
+        
+    <img src="images/logo.png" alt="Logo" class="logo">
+
+    <header><h1 class="en-tete">Myuka</h1>
+
+            <form method="get" class="formulaire">
+                <label for="cherche">Une recherche ?</label>
+                <input type="search" id="cherche">
+              </form>
+    </header>
+
+    <section class="titre">
+        <h2 class="produit">Kellogg's Frosties</h2>
+            <img src="images/barcode.gif" alt="Code barre">
+            <h2 class="titre-infos">Informations sur le produit</h2>
+    </section>
+
     <div id="grille">
+        <article class="photo-frosties">
+                <img src="images/kellogg-s-frosties.jpg" alt="Photo Frosties">   
+        </article>
 
-        <header class="content">
-            <img src="images/logo.png" alt="Logo" class="logo content">
+        <article class="ingredients">
+            <h3 class="h3">Ingrédients</h3>
+            <p>Maïs, sucre, arôme de malt d'Orge, sirop de glucose, sel, Vitamines et Minéraux : Carbonate de calcium, fer.<br><br>
+            <strong class="gluten">ATTENTION CE PRODUIT CONTIENT DU GLUTEN !</strong><br></p>
+        </article>
 
-            <h1 class="content myuka">MYUKA</h1>
+        <article class="valeurs">
+            <h3 class="h3">Valeurs nutritives</h3>
+            <img src="images/valeur-nutritive.png" alt="Valeurs nutritives">
+        </article>
 
-            <form method="get" class="content">
-              <label for="cherche">Une recherche ?</label>
-              <input type="search" id="cherche">
-            </form>
-        </header>
-
-        <article class="content">ARTICLE</article>
+        <article class="infos">
+            <h3 class="h3">Conditionnement, fabriquant</h3>
+            <p><ul>
+                <li>Quantité : <em>600g</em></li>
+                <li>Conditionnement : <em>Carton</em></li>
+                <li>Marques : <em>Kellogg's</em></li>
+                <li>Catégorie : <em>Aliments et boissons à base de végétaux, Aliments d'origine végétale, Céréales et pomme de terre et Petit-déjeuners.</em></li>
+                <li>Labels, certifications, récompenses : <em>Végétariens, Kascher, Beth Din de Manchester</em></li>
+                <li>Magasins : <em>Intermarché, Magasin U, Cora, Leclerc</em></li>
+                <li>Pays de vente : <em>Belgique, France</em></li>
+              </ul></p>
+        </article>
         <footer class="content">FOOTER</footer>
     </div>
 
