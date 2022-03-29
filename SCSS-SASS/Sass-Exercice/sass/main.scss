@@ -26,14 +26,19 @@ $openSans:"Open Sans", helvetica, arial, sans-serif;
 //     color: $silver;
 // }
 
-// body{
-//     font-weight: normal;
-// }
+body{
+    font-weight: lighter;
+    background-color: rgb(255, 255, 255);
+    justify-items: center;
+    width: 70%;
+    height: 2156px;
+    font-family: $openSans;
+}
 /* ###################### HEADER #############################*/
 
 header{
     background-color: $dark_grey;
-    padding: 10px;
+    // padding: 10px;
     display: inline-flex;
     h1{
         color: $yellow;
@@ -43,18 +48,25 @@ header{
         justify-content: start;
         font-size: 25px;
         font-weight: lighter;
+        padding: 0px;
     }
     p{
+        // position: relative;
         color: $light;
         font-family: $openSans;
         // text-align: center;
-        justify-content: start;
+        // top: 20px;
+        // left: -85px;              
     }
 }
 
 #search{
-    display: block;
+    display: inline-flex;
     margin: 0 auto;
+    justify-items: end;
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
 
 
@@ -65,11 +77,14 @@ aside{
 }
 nav{
     ul{
+        position: relative;
+        top: 50px;
+        left: -20px;
         list-style-type: none;
         margin: 0;
         padding: 0;
         li{
-            text-align: center;
+            text-align: left;
             border-bottom: $yellow 2px solid;
             width: 50%;
             margin: 0 auto;
@@ -90,8 +105,9 @@ nav{
 .copyright{
     color: $yellow;
     font-family: $grandHotel;
-    visibility: hidden;
     margin: 0;
+    position: absolute;
+    bottom: -1160px;
 }
 
 /*################################# SECTIONS ####################################*/
@@ -126,7 +142,25 @@ nav{
     h1{
         font-family: $grandHotel;
     }
+
+    .product{
+        box-shadow: 0px 1px 2px $light_grey;
+    }
 }
+
+.production{
+    background-image: url("../images/bg-productionb.jpg");
+    color: $silver;
+    h1{
+        font-family: $grandHotel;
+    }
+
+    p{
+        font-family: $openSans;
+    }
+}
+
+
 
 /*################################# Grid ####################################*/
 .content{
@@ -135,9 +169,10 @@ nav{
 }
 .cards{
     @include cards;
+    
 
     figure{
-        border: 1px solid transparent;
+        box-shadow: 0px 1px 2px $light_grey;
         font-family: $openSans;
     }
     h2{
