@@ -1,7 +1,15 @@
+body {
+  font-weight: lighter;
+  background-color: white;
+  justify-items: center;
+  width: 70%;
+  height: 2156px;
+  font-family: "Open Sans", helvetica, arial, sans-serif;
+}
+
 /* ###################### HEADER #############################*/
 header {
   background-color: #222;
-  padding: 10px;
   display: inline-flex;
 }
 header h1 {
@@ -11,16 +19,20 @@ header h1 {
   justify-content: start;
   font-size: 25px;
   font-weight: lighter;
+  padding: 0px;
 }
 header p {
   color: #fff;
   font-family: "Open Sans", helvetica, arial, sans-serif;
-  justify-content: start;
 }
 
 #search {
-  display: block;
+  display: inline-flex;
   margin: 0 auto;
+  justify-items: end;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
 
 /* navigation */
@@ -29,12 +41,15 @@ aside {
 }
 
 nav ul {
+  position: relative;
+  top: 50px;
+  left: -20px;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 nav ul li {
-  text-align: center;
+  text-align: left;
   border-bottom: #ff0 2px solid;
   width: 50%;
   margin: 0 auto;
@@ -53,8 +68,9 @@ nav ul li a {
 .copyright {
   color: #ff0;
   font-family: "Grand Hotel", serif;
-  visibility: hidden;
   margin: 0;
+  position: absolute;
+  bottom: -1160px;
 }
 
 /*################################# SECTIONS ####################################*/
@@ -87,6 +103,20 @@ nav ul li a {
 .produits h1 {
   font-family: "Grand Hotel", serif;
 }
+.produits .product {
+  box-shadow: 0px 1px 2px #444;
+}
+
+.production {
+  background-image: url("../images/bg-productionb.jpg");
+  color: #eee;
+}
+.production h1 {
+  font-family: "Grand Hotel", serif;
+}
+.production p {
+  font-family: "Open Sans", helvetica, arial, sans-serif;
+}
 
 /*################################# Grid ####################################*/
 .content {
@@ -99,7 +129,7 @@ nav ul li a {
   grid-template-columns: repeat(3, 1fr);
 }
 .cards figure {
-  border: 1px solid transparent;
+  box-shadow: 0px 1px 2px #444;
   font-family: "Open Sans", helvetica, arial, sans-serif;
 }
 .cards h2 {
