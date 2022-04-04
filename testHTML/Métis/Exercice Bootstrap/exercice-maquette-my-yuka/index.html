@@ -16,6 +16,7 @@
     <header class="en-tete">
         <a href="index.html" id="debut"><img src="images/logo.png" alt="Logo de My Yuka" id="img-logo"></a>
         <h1 class="myuka"> <strong class="orange">MY YU</strong><strong class="vert">KA</strong></h1>
+
         <button type="button" class="btn btn-primary contact" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Contactez-nous</button>
 
 <div class="modal fade modale" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -68,9 +69,9 @@
 
     <nav>
     <div class="form-group">
-        <label class="col-form-label col-form-label-lg mt-4" for="inputLarge">Une recherche ?</label>
-        <input class="form-control form-control-lg" type="text" placeholder="Rechercher..." id="inputLarge" data-np-checked="1">
-        <button type="submit" class="btn btn-primary">Scanner</button>
+        <label class="col-form-label col-form-label-lg mt-4 search-l" for="inputLarge">Une recherche ?</label>
+        <input class="form-control form-control-lg search-bar" type="text" placeholder="Rechercher..." id="inputLarge" data-np-checked="1">
+        <button type="submit" class="btn btn-primary btn-scan">Scanner</button>
     </div>
     </nav>
 
@@ -134,7 +135,7 @@
         </div>
 
         <div id="infos">
-          <h2>Informations</h2>
+          <h2 class="vert">Informations</h2>
           <p><ul>
             <li>Quantité : <em>600g</em></li>
             <li>Conditionnement : <em>Carton</em></li>
