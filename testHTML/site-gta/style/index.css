@@ -55,13 +55,6 @@
     justify-self: center;
 }
 
-footer{
-    display: flex;
-    flex-direction: column-reverse;
-    text-align: center;
-    margin-top: 20px;
-}
-
 
 
 

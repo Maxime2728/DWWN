@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    color: white;
+    color: silver;
 }
 
 body{
@@ -22,7 +22,7 @@ body{
     display: flex;
     justify-content: center;
     font-size: 25px;
-    margin-top: 15px;
+    margin-top: 30px;
     margin-bottom: 30px;
 }
 
@@ -37,6 +37,7 @@ body{
     color: rgb(255, 138, 3) !important;
     font-family: 'Fredoka One', cursive;
     white-space: normal;
+    text-align: center;
 }
 
 .menu-color a:hover{
@@ -46,6 +47,7 @@ body{
 .navbar{
     background-color: rgb(26, 26, 26) !important;
     border-radius: 10px !important;
+    border: 2px rgba(255, 138, 3, 0.7) solid;
 }
 
 a.active{
@@ -103,7 +105,12 @@ p a:hover{
     color: white;
 }
 
-
+footer{
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    margin-top: 20px;
+}
 
 
 /* ######## Font Family ######### 
