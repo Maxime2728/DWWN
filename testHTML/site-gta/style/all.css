@@ -21,7 +21,7 @@ body{
     background-color: rgb(46, 46, 46) !important;
 }
 
-/* ###### Header ###### */
+/* ###### Header/Menu ###### */
 
 .menu-gta{
     display: flex;
@@ -36,6 +36,7 @@ body{
     color: rgb(255, 255, 255) !important;
     padding-right: 25px;
     font-family: 'Carter One', cursive;
+    border-right: 2px rgb(255, 138, 3) solid;
 }
 
 .menu-color a{
@@ -43,16 +44,19 @@ body{
     font-family: 'Fredoka One', cursive;
     white-space: normal;
     text-align: center;
+    border: 4px rgba(255, 138, 3, 0.4) solid;
+    border-radius: 20px;
 }
 
 .menu-color a:hover{
     color: white !important;
+    border: 4px white solid;
 }
 
 .navbar{
     background-color: rgb(26, 26, 26) !important;
     border-radius: 10px !important;
-    border: 2px rgba(255, 138, 3, 0.7) solid;
+    /* border: 2px rgba(255, 138, 3, 0.7) solid; */
 }
 
 a.active{
