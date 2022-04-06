@@ -1,3 +1,4 @@
+/* ###### Section 1 ###### */
 .first-s{
     display: grid;
     grid-template-columns: 15px repeat(3, 1fr) 25px;
@@ -10,13 +11,16 @@
     border: 4px rgb(255, 138, 3) solid !important;
     box-shadow: 8px 5px 5px rgb(255, 138, 3) !important;
     margin-top: 30px;
+    margin-bottom: 20px;
     border-radius: 10px;
     width: 400px;
 }
 
-.first-g-1{
+.un{
     grid-column: 2/3;
 }
+
+/* ###### Section 2 ###### */
 
 .second-s{
     display: grid;
@@ -25,22 +29,7 @@
     margin: auto;
 }
 
-.titre{
-    margin-top: 30px;
-    justify-self: center;
-    color: silver;
-    font-family: 'Bebas Neue', cursive;
-    text-align: center;
-    margin-top: 10px;
-}
-
-.carte-gta{
-    width: 70%;
-    justify-self: center;
-    margin-top: 20px;
-}
-
-
+/* ###### Section 3 ###### */
 
 .third-s{
     display: grid;
@@ -49,6 +38,8 @@
     justify-self: center;
     margin: auto;
 }
+
+/* ###### Points Communs ###### */
 
 .point-c{
     grid-column: 2;

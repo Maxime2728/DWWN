@@ -1,3 +1,5 @@
+/* ###### 1ere Section ###### */
+
 .first-s{
     display: grid;
     grid-template-columns: 50px repeat(2, 1fr) 50px;
@@ -9,5 +11,46 @@
     box-shadow: 8px 5px 5px rgb(255, 138, 3) !important;
     margin-top: 30px;
     border-radius: 10px;
-    width: 400px;
+    width: 450px;
+    justify-self: center;
 }
+
+.un{
+    grid-column: 2;
+}
+
+.trois{
+    grid-column: 2;
+}
+
+.cinq{
+    grid-column: 2/4;
+    grid-row: 3;
+}
+
+/* ###### 2eme Section ###### */
+
+.second-s{
+    display: grid !important;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    margin: auto;
+    margin-top: 40px;
+}
+
+.second-s h3{
+    margin-top: 30px;
+}
+
+/* ###### Tableaux ###### */
+
+.third-s{
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+}
+
+

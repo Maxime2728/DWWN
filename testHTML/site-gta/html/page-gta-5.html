@@ -4,12 +4,16 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../style/all.css">
     <link rel="stylesheet" href="../style/pages.css">
+    <link rel="stylesheet" href="../style/all.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Carter+One&family=Fredoka+One&family=Karla:wght@300&family=Rock+Salt&display=swap" rel="stylesheet">
+
+    <!-- ##### Animations ##### -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -38,7 +42,7 @@
                     <a class="nav-link" href="page-gta-4.html">Grand Theft Auto 4 |</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" href="page-gta-5.html">Grand Theft Auto 5 |
+                    <a class="nav-link active animate__animated animate__bounceIn" href="page-gta-5.html">Grand Theft Auto 5 |
                      <span class="visually-hidden">(Actuel)</span>
                      </a>
                   </li>
@@ -48,13 +52,12 @@
           </nav>
         </header>
         
-          <div class="img-logo-gta-5"><img src="../images/gta-5-logo.gif" alt="Gif logo GTA 5"></div>
+          <img src="../images/gta-5-logo.gif" alt="Gif logo GTA 5" class="img-index">
           
           <div class="menu-gta">
-            <nav class="menu-bottom-gta-sa">
               <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">
-                  <a class="navbar-brand menu-top" href="../index.html" id="debut"></a>
+                  <a class="navbar-brand menu-top" href="../index.html" id="debut">Où souhaitez-vous aller ?</a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -62,15 +65,15 @@
                   <div class="collapse navbar-collapse menu-color" id="navbarColor03">
                     <ul class="navbar-nav me-auto">
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Présentation
+                        <a class="nav-link" href="#pres">Présentation
                           <span class="visually-hidden">(Actuel)</span>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Photos</a>
+                        <a class="nav-link" href="#photos">Photos</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Informations</a>
+                        <a class="nav-link" href="#infos">Informations</a>
                       </li>
                     </ul>
                   </div>
@@ -79,102 +82,81 @@
             </nav>
           </div>
 
-          <section class="first-gta-5">
-            <div class="titre-first titre-5" id="presentation"><h2>Los Santos (Los Angeles)</h2></div>
-            <div class="cards">
+          <section class="first-s" id="pres">
+            
+            <!-- <div class="cards">
             <p class="first-gta-5-p-1">La province de Los Santos à une superficie de 75,84km², c'est la Première plus grande carte de la franchise Grand Theft Auto. <br>
                  Elle est composée de plusieurs quartiers, les principaux sont Los Santos (Centre ville), Paleto Bay, Sandy Shore et Lago Zanduco. </p>
-            </div>
+            </div> -->
 
-            <div class="cards">
-              <p class="first-gta-5-p-2">Los Santos est une ville plutôt agitée, entre le traffic et les crimes, la police ne s'ennuie jamais. Même si ses quartiers riches sont calmes, le sud de la ville est propice a tout type de crimes. <br>
+            <div class="cards un">
+              <h3 class="titre">Los Santos (Los Angeles)</h3>
+              <p>Los Santos est une ville plutôt agitée, entre le traffic et les crimes, la police ne s'ennuie jamais. Même si ses quartiers riches sont calmes, le sud de la ville est propice a tout type de crimes. <br>
                 Dans le nord nous pouvons retrouver des lieux de pêches, des fermes, une prison etc...
                 </p>
             </div>
 
-            <div class="cards">
-              <p class="first-gta-5-p-3"></p>
-            </div>
-          </section>
-
-          <section class="second-gta-5">
-            <div class="cards">
-              <h3 class="titre-second">Los Santos (Los Angeles)</h3>
-                <p class="second-gta-5-p-1">Entre les gangsters et les citoyens plutôt énervés, la ville de Los Santos n'est pas si calme qu'elle en à l'air, mais si vous remontez dans le nord de la ville vous pourrez trouver de très jolie villas et de jolies maison, mais attention au cambriolage :)
+            <div class="cards deux">
+              <h3 class="titre">Paleto Bay</h3>
+              <p>Une petite ville calme, à l'exception de quelques bikers qui veut faire leurs loi, Paleto Bay est une très bonne zone de pêche, et est diversifier au niveau faûne.
                 </p>
             </div>
 
-            <div class="cards">
-              <h3 class="titre-second">Paleto Bay</h3>
-              <p class="second-gta-5-p-2">Une petite ville calme, à l'exception de quelques bikers qui veut faire leurs loi, Paleto Bay est une très bonne zone de pêche, et est diversifier au niveau faûne.
-                </p>
+            <div class="cards trois">
+              <h3 class="titre">Sandy Shore</h3>
+              <p>Un petit village, où l'on peut retrouver des fermes et un grand lac, cet endroit est calme si vous n'allez pas vous en prendre aux fermiers du coin... </p>
             </div>
 
-            <div class="cards">
-              <h3 class="titre-second">Sandy Shore</h3>
-              <p class="second-gta-5-p-3">Un petit village, où l'on peut retrouver des fermes et un grand lac, cet endroit est calme si vous n'allez pas vous en prendre aux fermiers du coin... </p>
-            </div>
-
-            <div class="cards">
-                <h3 class="titre-second">Lago Zanduco</h3>
-                <p class="second-gta-5-p-3">Lago est la base militaire de Los Santos, attention à ne pas trop vous en approcher si vous ne voulez pas repartir avec des tank et des avions de chasses à vos trousses.. <br>
+            <div class="cards quatre">
+                <h3 class="titre">Lago Zanduco</h3>
+                <p>Lago est la base militaire de Los Santos, attention à ne pas trop vous en approcher si vous ne voulez pas repartir avec des tank et des avions de chasses à vos trousses.. <br>
                 A vos risques et périls...</p>
               </div>
 
-              <div class="cards">
-                <h3 class="titre-second">Cayo Perico</h3>
-                <p class="second-gta-5-p-3">Ah Cayo... Une si belle île tropical, avec son eau plus bleu que le ciel, n'est ce pas magnifique ? <br>
-                Profitez de votre avions, votre jet-ski ou bien votre bateau en allant à Cayo, vous me remercierez..</p>
+              <div class="cards cinq">
+                <h3 class="titre">Cayo Perico</h3>
+                <p>Ah Cayo... Une si belle île tropical, avec son eau plus bleu que le ciel, n'est ce pas magnifique ? <br>
+                Profitez de votre avions, votre jet-ski ou bien votre bateau en allant à Cayo, mais attention aux animaux et aux habitants (Ils aiment pas trop les visiteurs *_*)</p>
               </div>
+          </section>
+
+          <section class="second-s" id="photos">
+
+            <h3 class="titre">Lac de Sandy Shore</h3>
+              <img src="../images/lac-gta5.jpg" alt="Lac GTA 5" class="carte-gta">
+
+            <h3 class="titre">Centre ville de Los Santos</h3>
+              <img src="../images/PillboxHill-GTAV.webp" alt="Centre Ville" class="carte-gta">
+
+            <h3 class="titre">Carte de Cayo Perico</h3>
+              <img src="../images/cayo-perico.webp" alt="Cayo Perico" class="carte-gta">
+
+            <h3 class="titre">Plusieurs photos de Cayo Perica</h3>
+              <img src="../images/cayo-perico2.webp" alt="Cayo Perico" class="carte-gta">
+
+            <h3 class="titre">Carte de Grand Theft Auto V</h3>
+              <img src="../images/carte-gta-5.png" alt="GTA 5 map" class="carte-gta">
 
           </section>
 
-          <section class="third-gta-5" id="photos">
-
-            <div class="img-gta-5-1 img-gta-5">
-                <h3>Lac de Sandy Shore</h3>
-              <img src="../images/lac-gta5.jpg" alt="Lac GTA 5">
-            </div>
-
-            <div class="img-gta-5-2 img-gta-5">
-                <h3>Cayo Perico vue d'ensemble</h3>
-              <img src="../images/cayo-perico.webp" alt="Cayo Perico">
-            </div>
-
-            <div class="img-gta-5-3 img-gta-5">
-                <h3>Cayo Perico panorama</h3>
-              <img src="../images/cayo-perico2.webp" alt="Cayo Perico">
-            </div>
-
-            <div class="img-gta-5-3 img-gta-5">
-                <h3>Centre ville de Los Santos</h3>
-                <img src="../images/PillboxHill-GTAV.webp" alt="Centre Ville">
-            </div>
-
-            <div class="img-gta-5-3 img-gta-5">
-                <h3>Carte de Grand Theft Auto 5</h3>
-                <img src="../images/carte-gta-5.png" alt="GTA 5 map">
-            </div>
-          </section>
-
-          <section class="fourth-gta-5" id="infos">
-              <h3 class="titre-gta">Informations</h3>
-            <table class="tab-gta-5">
+          <section class="third-s" id="infos">
+              <h3 class="titre">Informations</h3>
+            <table>
               <tr>
-                <td>Appelation</td>
-                <td>Grand Theft Auto V</td>
+                <td class="tab-c">Appelation</td>
+                <td class="tab-c">Grand Theft Auto V</td>
               </tr>
               <tr>
-                <td>Nom</td>
-                <td>Los Santos</td>
+                <td class="tab-c">Nom</td>
+                <td class="tab-c">Los Santos</td>
               </tr>
               <tr>
-                <td>Capitale</td>
-                <td>?</td>
+                <td class="tab-c">Capitale</td>
+                <td class="tab-c">?</td>
               </tr>
               <tr>
-                  <td>Habitants</td>
-                  <td>+/- 3.5 millions</td>
+                  <td class="tab-c">Habitants</td>
+                  <td class="tab-c">+/- 3.5 millions</td>
               </tr>
               
             </table>
@@ -182,7 +164,7 @@
           <hr>
           <footer class="pied-2-page">
             <p>&copy; Copyright Maxime Bizeau</p>
-            <a href="#debut" class="btn-debut"><button type="button" class="btn btn-secondary">Revenir en haut</button></a>
+            <a href="#debut" class="btn-debut"><button type="button" class="btn btn-secondary bouton-color">Revenir en haut</button></a>
         </footer>
 
     </div>
