@@ -1,0 +1,54 @@
+/* ###### Section 1 ###### */
+.first-s{
+    display: grid;
+    grid-template-columns: 15px repeat(3, 1fr) 25px;
+    margin: auto;
+    grid-gap: 20px;
+    justify-items: center;
+}
+
+.cards{
+    border: 4px rgb(255, 138, 3) solid !important;
+    box-shadow: 8px 5px 5px rgb(255, 138, 3) !important;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.un{
+    grid-column: 2/3;
+}
+
+/* ###### Section 2 ###### */
+
+.second-s{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    margin: auto;
+}
+
+/* ###### Section 3 ###### */
+
+.third-s{
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: auto;
+    justify-self: center;
+    margin: auto;
+}
+
+/* ###### Points Communs ###### */
+
+.point-c{
+    grid-column: 2;
+    justify-self: center;
+}
+
+
+
+
+
+
+
