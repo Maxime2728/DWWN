@@ -1,4 +1,2 @@
-function iden(pseudo){
-    pseudo = prompt("Entrez votre Pseudo");
-    // document.title = pseudo;
-}
+test = prompt("Entrez votre identifiant");
+document.title = test;

@@ -1,7 +1,6 @@
 let nombreLigne = 0;
 let nb_ou_car = 0;
 let i = 0;
-let j = 0;
 let resultat = "";
 
 function affiche(){
@@ -13,6 +12,6 @@ nb_ou_car=prompt("Rentrez l'entier désiré");
 
 affiche();
 
-for(i =1; i <= nombreLigne; i++){
+for(i =2; i <= nombreLigne; i++){
     affiche();
 }
