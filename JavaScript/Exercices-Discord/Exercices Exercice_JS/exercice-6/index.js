@@ -2,10 +2,9 @@
 
 function changeColor(color){
     document.body.style.background=color;
-}
+    document.getElementById('white').style.color='#FFF';
+    }
 
-function changeColor(para, color){
-    document.getElementById(bonjour).style.color=color;
-}
+    
 
 // function changeColor
