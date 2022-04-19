@@ -3,7 +3,6 @@ function guessGame(){
     let guess;
     let nbCoups = 0;
     
-    // console.log(fixedNr);
     interval = parseInt(prompt("Choisissez l'interval du jeu"));
     let randomNr = Math.floor(Math.random() * interval);
     do{
