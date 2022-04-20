@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 8</title>
+</head>
+<body>
+    <form name="calc">
+        <div>
+            <label for="first-nb">Première Valeur :</label>
+            <input type="number" name="firstnb" id="firstnumber">
+        </div>
+        <div>
+            <label for="second-nb">Seconde Valeur :</label>
+            <input type="number" name="secondnb" id="secondnumber">
+        </div>
+        <div>
+            <button id="plus" value="+" onclick="operation('add')">+</button>
+            <button id="moins" value="-" onclick="operation('sous')">-</button>
+            <button id="multiplie" value="*" onclick="operation('multi')">x</button>
+            <button id="divise" value="/" onclick="operation('divi')">/</button>
+        </div>
+        <input id="result" type="text" name="resultat">
+    </form>
+
+    <script src="index.js"></script>
+</body>
+</html>
