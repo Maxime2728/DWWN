@@ -4,6 +4,7 @@ let max;
 let randomAtq;
 let randomDef;
 let randomAncienAtq = -1;
+let type = "";
 min = 20;
 max = 100;
 //-------------------------COLOR
@@ -77,10 +78,14 @@ class personnage {
     this.Setvie = function (newvie) {
       _vie = newvie;
 
+      if (_vie > 100) {
+        _vie = 100;
+      }
+
       if (_vie <= 0) {
         _existe = false;
         _vie = 0;
-        colorLog(`Le personnage ${this.Getnom()} est MORT.`, "dead");
+        colorLog(`Le personnage ${this.Getnom()} ${type} est MORT.`, "dead");
       }
     };
     // ----------------------------------ATTAQUE
@@ -91,6 +96,12 @@ class personnage {
     };
     this.Setattaque = function (newattaque) {
       _attaque = newattaque;
+      if (_attaque < 20) {
+        _attaque = 20;
+      }
+      if (_attaque > 100) {
+        _attaque = 100;
+      }
     };
     // ---------------------------------------DEFENSE
     var _defense = this.nombreAleatoire();
@@ -99,19 +110,26 @@ class personnage {
     };
     this.Setdefense = function (newdefense) {
       _defense = newdefense;
+      if (_attaque < 20) {
+        _attaque = 20;
+      }
+      if (_attaque > 100) {
+        _attaque = 100;
+      }
     };
 
     // ----------------------------------------------AFFICHER INFO
     this.afficherInfo = function () {
       colorLog(
-        `Nom : ${this.Getnom()}, Vie : ${this.Getvie()}, Attaque : ${this.Getattaque()}, Défense : ${this.Getdefense()}`,
+        `Nom : ${this.Getnom()}, Type : ${type}, Vie : ${this.Getvie()}, Attaque : ${this.Getattaque()}, Défense : ${this.Getdefense()}`,
         "perso"
       );
     };
+
     // ---------------------------------------------- SURPRISE MOTHERFUCKER (Attaque)
     this.attaquer = function (defenseur) {
       colorLog(
-        `Nouvelle attaque de: ${this.Getnom()} sur ${defenseur.Getnom()}`,
+        `Nouvelle attaque de: ${this.Getnom()} (${type}) sur ${defenseur.Getnom()} (${type})`,
         "battle"
       );
       if (this.Getattaque() > defenseur.Getdefense()) {
@@ -138,18 +156,44 @@ class personnage {
     };
   }
 }
+//------------------------------- Classe CRS ------------------------------------------
+class CRS extends personnage {
+  constructor(nom) {
+    super(nom);
+
+    var _vie = _vie - 5;
+    var _attaque = _attaque + 5;
+    var _defense = _defense + 5;
+
+    type = "CRS";
+  }
+}
+
+//------------------------------- Classe GJ -------------------------------------------
+class GJ extends personnage {
+  constructor(nom) {
+    super(nom);
+
+    var _vie = _vie + 5;
+    var _attaque = _attaque - 5;
+    var _defense = _defense - 5;
+
+    type = "GJ";
+  }
+}
 //------------------------------- TABLEAU -----------------------------------------
 //------------------------------- CLASSE MATCH -----------------------------------------
 class Match {
   constructor() {
-    var nbrJoueur = 3;
+    var nbrJoueur = 4;
     var joueurs = new Array();
     var nbrejoueurcree = 0;
     var nomSaisie = "";
     var perso;
     var bPresent;
     var round = 0;
-    var winner;
+    var winInfos;
+    var nbrPair = new Array(2, 4, 6, 8, 10, 12, 14, 16, 18, 20);
 
     while (nbrejoueurcree < nbrJoueur) {
       bPresent = false;
@@ -161,15 +205,35 @@ class Match {
         }
       }
       if (bPresent == false) {
-        perso = new personnage(nomSaisie);
+        perso = new GJ(nomSaisie);
         perso.afficherInfo();
         joueurs.push(perso);
         nbrejoueurcree += 1;
       }
     }
-    function win() {
-      colorLog(`Le joueur ${joueurs[0].Getnom()} a gagné avec`, "win");
+
+    function nbrePair() {
+      if (nbrJoueur == nbrPair) {
+      }
     }
+
+    function winInfos() {
+      colorLog(
+        "Le joueur " +
+          joueurs[0].Getnom() +
+          " a gagné avec " +
+          joueurs[0].Getvie() +
+          "% de vie, " +
+          joueurs[0].Getattaque() +
+          "% d'attaque et " +
+          joueurs[0].Getdefense() +
+          "% de défense.",
+        "win"
+      );
+    }
+    // function win() {
+    //   colorLog(`Le joueur ${joueurs[0].Getnom()} a gagné avec`, "win");
+    // }
 
     //tant qu'il reste plus d'un joueur
     while (joueurs.length > 1) {
@@ -184,7 +248,7 @@ class Match {
           //attaque
           joueurs[randomAtq].attaquer(joueurs[randomDef]);
           round += 1;
-          colorLog("Attention le round " + round + " va commencer", "round");
+          colorLog("Attention le round " + round + " va commencer !", "round");
           try {
             //si l'attaquant est mort on le supprime du tableau
             if (joueurs[randomAtq].Getexiste() == false) {
@@ -204,7 +268,7 @@ class Match {
       console.log(joueurs);
     }
     // Le joueur gagnant est annoncé
-    console.log(win());
+    console.log(winInfos());
   }
 }
 
