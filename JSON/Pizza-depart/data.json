@@ -1,0 +1,24 @@
+{
+  "nom": "Chez Coco",
+  "slogan": "Les pizzas plus bonne que ta soeur",
+  "pizzas": [
+    {
+      "nomPizza": "4 Fromages",
+      "prix": "12€",
+      "image": "https://assets.afcdn.com/recipe/20200506/110673_w1024h768c1cx3120cy2080.webp",
+      "garnitures": ["Extra Fromage", "Fromage bleu", "Sauce Tomates"]
+    },
+    {
+      "nomPizza": "Hawaïenne",
+      "prix": "14€",
+      "image": "https://chefcuisto.com/files/2015/09/pizza-hawaienne.jpg",
+      "garnitures": ["Ananas", "Extra Fromage", "Jambon", "Sauce Tomates"]
+    },
+    {
+      "nomPizza": "Jambons Classique +",
+      "prix": "10€",
+      "image": "https://www.bi1.fr/wp-content/plugins/recettes//images/adobestock-106334728-1526999046.png",
+      "garnitures": ["Jambon", "Sauce Tomates", "Extra Fromage", "Bacon"]
+    }
+  ]
+}

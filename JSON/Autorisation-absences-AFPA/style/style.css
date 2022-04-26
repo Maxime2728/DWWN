@@ -1,0 +1,17 @@
+body{
+    background-color: whitesmoke;
+}
+#box{
+    display: none;
+}
+#box2{
+    display: none;
+}
+
+.card{
+    border: 3px rgb(106, 240, 106) solid;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
