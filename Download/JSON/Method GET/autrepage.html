@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head></head>
+<body>
+    <div id="Parametre1"></div>
+    <div id="Parametre2"></div>
+
+    <script language="JavaScript">
+
+
+        function addParametersInForm()
+        {
+            try{
+                var parameters = location.search.substring(1).split("&");
+        
+                var temp = parameters[0].split("=");
+                console.log(temp[1]);
+                l = decodeURI(temp[1]);   //decodeURI va calculer une nouvelle chaîne de caractères et remplace les séquences d'échappement hexadécimales par les caractères qu'elles représentent.
+            
+
+        
+                temp = parameters[1].split("=");
+                c = decodeURI(temp[1]);
+        
+        
+                document.getElementById("Parametre1").innerHTML = l;
+                document.getElementById("Parametre2").innerHTML = c;
+            }
+            catch (error) {
+                console.error("Il n'y a pas de paramètres");
+                // expected output: ReferenceError: nonExistentFunction is not defined
+                // Note - error messages will vary depending on browser
+            }
+        }
+    addParametersInForm();
+    
+    </script>
+</body>
+
+</html>

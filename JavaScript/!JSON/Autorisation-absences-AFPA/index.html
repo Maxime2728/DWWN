@@ -7,18 +7,17 @@
     <link rel="stylesheet" href="style/style.css">
     <title>Autorisations d'absence AFPA</title>
 </head>
-<body>
+<body onload="chargeJson()">
     <section class="identification">
-        <form action="recup-absence.html" method="get">
+        <form action="recup-absence.html" method="get" name="parameters" target="_top">
         <h1>Identification</h1>
-        <form action="" method="get" class="identite">
             <div id="formulaire">
                 <label for="nom-f">Nom :</label>
-                <input type="text" id="fname" name="fname"> <br>
+                <input type="text" id="fname" name="identite"> <br>
             </div>
             <div id="formulaire">
                 <label for="prenom-f">Prénom :</label>
-                <input type="text" name="pname" id="pname"> <br>
+                <input type="text" name="pname" id="identite"> <br>
             </div>
             <div id="formulaire">
                 <label for="menu-der-f">Formation suivie</label>
@@ -28,43 +27,39 @@
                     <option>TSSR</option>
                 </select>
             </div>
-        </form>
     </section>
 
-    <section class="demande-autorisation">
-        <form>
+    <section class="demande-autorisation" id="demande-autorisation">
         <h1>Demande l'autorisation de s'absenter du centre</h1>
         <div>
-            <input type="radio" id="hide" name="example" value="hide" checked />
+            <input type="radio" id="hide" name="example" value="hide" class="check1" checked />
             <label for="hide">Un jour :</label>
         </div>
         <div id="box2">
         <p>Le : 
 
-            <input type="date" id="start" name="trip-start" value="" min="2022-01-01" max="2022-12-31">
+            <input type="date" id="start" name="trip-start" value="" min="2022-01-01" max="2050-12-31">
         </p>
         <p>De :
-            <input type="time" id="appt" name="appt" min="09:00" max="18:00" required>
+            <input type="time" id="appt" name="time" min="09:00" max="17:00" required>
         </p>
         <p>A :
-            <input type="time" id="appt" name="appt" min="09:00" max="18:00" required>
+            <input type="time" id="appt" name="time1" min="09:00" max="17:00" required>
         </p>
-    </div>
+        </div>
         <div>
-            <input type="radio" id="show" name="example" value="show" />
+            <input type="radio" id="show" name="example" value="show" class="check2" />
             <label for="show">Plusieurs jours :</label>
         </div>
     
-    
         <div id="box">
-    
-    
+
             <p>Du :</p>
-            <input type="datetime-local" id="meeting-time" name="meeting-time" value="" min="2022-01-01T08:00"
-                max="2022-12-24T17:00">
+            <input type="datetime-local" id="time2" name="time2" value="" min="2022-01-01 T 08:00"
+                max="2050-12-31 T 17:00">
             <p>Au :</p>
-            <input type="datetime-local" id="meeting-time" name="meeting-time" value="" min="2022-01-01T08:00"
-                max="2022-12-24T17:00">
+            <input type="datetime-local" id="time3" name="time3" value="" min="2022-01-01 T 08:00"
+                max="2050-12-31 T 17:00">
     
         </div>
 
@@ -76,7 +71,7 @@
         </form>
     </section>
 
-    
+    <script src="script/jquery-3.6.0.js"></script>
     <script src="script/script.js"></script>
 </body>
 </html>
