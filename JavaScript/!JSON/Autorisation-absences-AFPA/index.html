@@ -13,46 +13,47 @@
         <h1>Identification</h1>
             <div id="formulaire">
                 <label for="nom-f">Nom :</label>
-                <input type="text" id="fname" name="identite"> <br>
+                <input type="text" id="fname" name="identite" required> <br>
             </div>
             <div id="formulaire">
                 <label for="prenom-f">Prénom :</label>
-                <input type="text" name="pname" id="identite"> <br>
+                <input type="text" name="pname" id="identite" required> <br>
             </div>
             <div id="formulaire">
                 <label for="menu-der-f">Formation suivie</label>
-                <select name="formation-suivie" id="">
+                <select name="formation-suivie" id="" value="">
                     <option>DWWM</option>
                     <option>CDA</option>
                     <option>TSSR</option>
                 </select>
             </div>
+            
     </section>
 
     <section class="demande-autorisation" id="demande-autorisation">
         <h1>Demande l'autorisation de s'absenter du centre</h1>
         <div>
-            <input type="radio" id="hide" name="example" value="hide" class="check1" checked />
+            <input type="radio" id="hide" name="example" value="hide" class="check1" onclick="check1IsTrue()" checked />
             <label for="hide">Un jour :</label>
         </div>
-        <div id="box2">
+        <div id="box">
         <p>Le : 
 
             <input type="date" id="start" name="trip-start" value="" min="2022-01-01" max="2050-12-31">
         </p>
         <p>De :
-            <input type="time" id="appt" name="time" min="09:00" max="17:00" required>
+            <input type="time" id="appt" name="time" min="08:00" max="17:00">
         </p>
         <p>A :
-            <input type="time" id="appt" name="time1" min="09:00" max="17:00" required>
+            <input type="time" id="appt" name="time1" min="08:00" max="17:00">
         </p>
         </div>
         <div>
-            <input type="radio" id="show" name="example" value="show" class="check2" />
+            <input type="radio" id="show" name="example" value="show" class="check2" onclick="check2IsTrue()"/>
             <label for="show">Plusieurs jours :</label>
         </div>
     
-        <div id="box">
+        <div id="box1">
 
             <p>Du :</p>
             <input type="datetime-local" id="time2" name="time2" value="" min="2022-01-01 T 08:00"

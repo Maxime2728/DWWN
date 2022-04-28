@@ -1,13 +1,31 @@
 const box1 = document.getElementById("box");
-const box2 = document.getElementById("box2");
+const box2 = document.getElementById("box1");
+var check1 = document.getElementsByClassName("check1");
+var check2 = document.getElementsByClassName("check2");
 
+function check1IsTrue() {
+  check1 = true;
+  check2 = false;
+  console.log("Check 1 = " + check1 + " " + "Check 2 = " + check2);
+  return;
+}
+function check2IsTrue() {
+  check1 = false;
+  check2 = true;
+  console.log("Check 1 = " + check1 + " " + "Check 2 = " + check2);
+  return;
+}
 function handleRadioClick() {
-  if (document.getElementById("show").checked) {
+  if (document.getElementById("hide").checked) {
     box1.style.display = "block";
     box2.style.display = "none";
+
+    check1IsTrue();
   } else {
     box1.style.display = "none";
     box2.style.display = "block";
+
+    check2IsTrue();
   }
 }
 const radioButtons = document.querySelectorAll('input[name="example"]');
@@ -103,31 +121,42 @@ function addParametersInForm() {
     $("div[id='parametre2']").html("Prénom : " + prenom);
     $("div[id='parametre3']").html("Formation suivie : " + formation);
 
-    if (check1 == true) {
+    if (check1 == true && check2 == false) {
       // /!\ A revoir /!\
+      console.log("Premier check !");
       $("div[id='parametre4']").html("Le : " + le);
       $("div[id='parametre5']").html("De : " + de);
       $("div[id='parametre6']").html("A : " + a);
 
       // A Cacher
-
       $("div[id='parametre7']").hide();
       $("div[id='parametre8']").hide();
-    } else if (check2 == true) {
+
+      // Sinon si
+    } else if (check2 == true && check1 == false) {
+      console.log("Deuxième check !");
       $("div[id='parametre7']").html("Du : " + du);
       $("div[id='parametre8']").html("Au : " + au);
 
       // A cacher
 
-      $("div[id='parametre4']").html("Le : " + le);
-      $("div[id='parametre5']").html("De : " + de);
-      $("div[id='parametre6']").html("A : " + a);
+      $("div[id='parametre4']").hide();
+      $("div[id='parametre5']").hide();
+      $("div[id='parametre6']").hide();
     }
+
+    // $("div[id='parametre4']").html("Le : " + le);
+    // $("div[id='parametre5']").html("De : " + de);
+    // $("div[id='parametre6']").html("A : " + a);
+    // $("div[id='parametre7']").html("Du : " + du);
+    // $("div[id='parametre8']").html("Au : " + au);
+
+    // $("div[id='parametre7']").hide();
+    // $("div[id='parametre8']").hide();
 
     // document.getElementById("parametre1").innerHTML = "Nom : " + nom;
     // document.getElementById("parametre2").innerHTML = "Prénom : " + prenom;
-    // document.getElementById("parametre3").innerHTML =
-    //   "Formations Suivie : " + formation;
+    // document.getElementById("parametre3").innerHTML = "Formations Suivie : " + formation;
     // document.getElementById("parametre4").innerHTML = "Le : " + le;
     // document.getElementById("parametre5").innerHTML = "De : " + de;
     // document.getElementById("parametre6").innerHTML = "A : " + a;
@@ -139,8 +168,3 @@ function addParametersInForm() {
     // Note - error messages will vary depending on browser
   }
 }
-
-// function OnclickDo(){
-//   let unJour = getElementById("hide").checked = true;
-//   let plusJours = getElementById("show").checked = false;
-// }

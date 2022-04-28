@@ -2,10 +2,10 @@ body{
     background-color: rgb(206, 206, 206);
 }
 #box{
-    display: none;
-}
-#box2{
     display: block;
+}
+#box1{
+    display: none;
 }
 
 .card{
