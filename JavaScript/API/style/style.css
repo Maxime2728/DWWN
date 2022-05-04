@@ -1,0 +1,29 @@
+#drink-section img{
+    width: 50% !important;
+    height: auto;
+    margin: 0;
+}
+
+#drink-section{
+    display: flex;
+    flex-direction: row;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid grey;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+h2{
+    font-size: 30px;
+    text-align: center;
+}
+
+.ingredient{
+    font-size: 20px;
+}

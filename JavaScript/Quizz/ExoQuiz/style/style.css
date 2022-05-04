@@ -1,23 +1,19 @@
 body {
+    background: #005e9c;
+}
+
+span {
     font-family: "Archivo Black", sans-serif;
-    background: #f4d03f;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
 }
 
 .words {
-    color: #f4d03f;
-    font-size: 0;
-    line-height: 1.5;
+    color: #005e9c;
+    line-height: 1;
 }
 
 .words span {
     font-size: 5rem;
-    display: inline-block;
-    animation: move 3s ease-in-out infinite;
+    animation: move 4s ease-in-out infinite;
 }
 
 @keyframes move {
