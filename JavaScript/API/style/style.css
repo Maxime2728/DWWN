@@ -1,28 +1,105 @@
+body{
+    background-color: rgb(58, 58, 58);
+}
+
+*{
+    color: white;
+}
+
+#en-tete{
+    border: 2px solid rgb(43, 255, 61);
+    padding-bottom: 20px;
+    border-radius: 40px;
+    box-shadow: 5px 5px 5px 1px rgb(43, 255, 61);
+    font-weight: bold;
+}
+
+#radio{
+    display: flex;
+    justify-content: center;
+}
+
+.color{
+    background-color: black;
+    color: rgb(43, 255, 96);
+    margin-left: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 1px rgb(43, 255, 61);
+    font-weight: bolder;
+}
+
+.mb-3{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.form-label{
+    margin-right: 5px;
+}
 #drink-section img{
-    width: 50% !important;
-    height: auto;
+    width: 100px !important;
+    height: 100px;
     margin: 0;
 }
 
 #drink-section{
     display: flex;
     flex-direction: row;
+    max-width: 1500px;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
 }
 
-.card{
+.card-random{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid grey;
+    border: 2px solid rgb(43, 255, 61);
     border-radius: 20px;
     margin-right: 10px;
     margin-left: 5px;
+    width: 300px;
+    flex-wrap: wrap;
 }
 
+.card-name{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid rgb(43, 255, 61);
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-left: 5px;
+    width: 250px;
+    flex-wrap: wrap;
+}
+
+#instruction-card{
+    display: flex;
+    border: 2px solid rgba(0, 255, 179, 0.70);
+    border-radius: 10px;
+    margin: 7px;
+    padding: 4px;
+    text-align: center;
+    align-content:stretch;
+}
+
+
+
+/* ---------------- COULEURS ------------------*/
+h1{
+    color: rgb(43, 255, 61);
+    text-align: center;
+}
 h2{
     font-size: 30px;
     text-align: center;
+    color: rgb(0, 255, 149);
 }
+
 
 .ingredient{
     font-size: 20px;
