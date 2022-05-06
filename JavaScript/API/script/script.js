@@ -77,17 +77,16 @@ function displayRandomCocktail(cocktail) {
 
   /* Vérifier si le compteur est inférieur ou égal à 2 et si le onClickRandom est vrai et si le
   onClickByName est faux. Si tout cela est vrai, il appellera la fonction getRandomCocktail. */
-  if (compteur <= 2 && onClickRandom == true && onClickByName == false) {
+  if (compteur <= 22 && onClickRandom == true && onClickByName == false) {
     getRandomCocktail();
   }
-
-  let drinksection = document.getElementById("drink-section");
 
   for (var x = 0; x < cocktail.drinks.length; x++) {
     let drinksection = document.getElementById("drink-section");
 
     let card = document.createElement("div");
     card.setAttribute("class", "card-random " + "card-" + cardPlus1++);
+    card.setAttribute("onclick", "clickCardModal()");
 
     console.log("Card Plus = " + cardPlus1);
 
@@ -105,34 +104,35 @@ function displayRandomCocktail(cocktail) {
     card.appendChild(img);
 
     /* C'est une boucle qui s'exécutera 15 fois. */
-    for (let i = 1; i < 16; i++) {
-      /* Créer un nouvel élément appelé ingrédient et l'ajouter à l'élément de la carte. */
-      console.log(i);
+    // for (let i = 1; i < 16; i++) {
+    //   /* Créer un nouvel élément appelé ingrédient et l'ajouter à l'élément de la carte. */
+    //   console.log(i);
 
-      if (cocktail.drinks[x][`strIngredient${i}`] == null) {
-        break;
-      }
+    //   if (cocktail.drinks[x][`strIngredient${i}`] == null) {
+    //     break;
+    //   }
 
-      let ingredient = document.createElement("ons-list-item");
-      ingredient.setAttribute("class", "ingredient");
-      ingredient.innerHTML =
-        "<br>" +
-        cocktail.drinks[x][`strMeasure${i}`] +
-        ": " +
-        cocktail.drinks[x][`strIngredient${i}`] +
-        " ; ";
+    //   let ingredient = document.createElement("ons-list-item");
+    //   ingredient.setAttribute("class", "ingredient");
+    //   ingredient.innerHTML =
+    //     "<br>" +
+    //     cocktail.drinks[x][`strMeasure${i}`] +
+    //     ": " +
+    //     cocktail.drinks[x][`strIngredient${i}`] +
+    //     " ; ";
 
-      card.appendChild(ingredient);
-      drinksection.appendChild(card);
-    }
+    //   card.appendChild(ingredient);
+    //
+    // }
 
-    let cardInstru = document.createElement("div");
-    cardInstru.setAttribute("id", "instruction-card");
-    cardInstru.innerHTML = cocktail.drinks[x].strInstructions;
+    // let cardInstru = document.createElement("div");
+    // cardInstru.setAttribute("id", "instruction-card");
+    // cardInstru.innerHTML = cocktail.drinks[x].strInstructions;
 
-    card.appendChild(cardInstru);
+    // card.appendChild(cardInstru);
     compteur++;
     console.log("Compteur Random = " + compteur);
+    drinksection.appendChild(card);
   }
 }
 
@@ -141,7 +141,7 @@ function displayNameCocktail(cocktail) {
 
   /* Vérifier si le compteur est inférieur ou égal à 2 et si le onClickByName est vrai et si le
   onClickRandom est faux. Si tout cela est vrai, il appellera la fonction findByName. */
-  if (compteur <= 2 && onClickByName == true && onClickRandom == false) {
+  if (compteur <= 22 && onClickByName == true && onClickRandom == false) {
     findByName();
   }
   for (var x = 0; x < cocktail.drinks.length; x++) {
@@ -164,31 +164,32 @@ function displayNameCocktail(cocktail) {
     card.appendChild(img);
 
     /* C'est une boucle qui s'exécutera 15 fois. */
-    for (let i = 1; i < 16; i++) {
-      /* Créer un nouvel élément appelé ingrédient et l'ajouter à l'élément de la carte. */
-      console.log(i);
+    // for (let i = 1; i < 16; i++) {
+    //   /* Créer un nouvel élément appelé ingrédient et l'ajouter à l'élément de la carte. */
+    //   console.log(i);
 
-      if (cocktail.drinks[x][`strIngredient${i}`] == null) {
-        break;
-      }
+    //   if (cocktail.drinks[x][`strIngredient${i}`] == null) {
+    //     break;
+    //   }
 
-      let ingredient = document.createElement("ons-list-item");
-      ingredient.setAttribute("class", "ingredient");
-      ingredient.innerHTML =
-        "<br>" +
-        cocktail.drinks[x][`strMeasure${i}`] +
-        ": " +
-        cocktail.drinks[x][`strIngredient${i}`] +
-        " ; ";
+    //   let ingredient = document.createElement("ons-list-item");
+    //   ingredient.setAttribute("class", "ingredient");
+    //   ingredient.innerHTML =
+    //     "<br>" +
+    //     cocktail.drinks[x][`strMeasure${i}`] +
+    //     ": " +
+    //     cocktail.drinks[x][`strIngredient${i}`] +
+    //     " ; ";
 
-      card.appendChild(ingredient);
-      drinksection.appendChild(card);
-    }
+    //   card.appendChild(ingredient);
 
-    let cardInstru = document.createElement("instruction-card");
-    cardInstru.innerHTML = cocktail.drinks[x].strInstructions;
+    // }
 
-    card.appendChild(cardInstru);
+    // let cardInstru = document.createElement("instruction-card");
+    // cardInstru.innerHTML = cocktail.drinks[x].strInstructions;
+
+    // card.appendChild(cardInstru);
+    drinksection.appendChild(card);
     compteur++;
     console.log("Compteur Name = " + compteur);
   }

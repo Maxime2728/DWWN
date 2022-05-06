@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Tapestry&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Cocktail Finder</title>
   </head>
@@ -12,9 +18,11 @@
     <header id="en-tete">
       <h1 id="titre-principale">Cocktail Finder</h1>
 
-      <div id="radio">
+      <div class="slogan">
         <p>Réalisez vos meilleurs cocktails avec Cocktail Find !</p>
-        <br />
+      </div>
+
+      <div id="radio">
         <button
           type="button"
           class="btn btn-dark color"
@@ -45,8 +53,8 @@
 
       <div class="mb-3">
         <label for="cocktail-name" class="form-label"
-          >Rechercher par nom :</label
-        >
+          >Rechercher par nom :
+        </label>
         <input
           type="text"
           class="form-control"
@@ -56,6 +64,37 @@
       </div>
     </header>
     <div id="drink-section"></div>
+
+    <div class="modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save changes</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="script/script.js"></script>
