@@ -1,7 +1,7 @@
 console.log("Js Chargé avec succès");
 let compteur = 0;
-let check1 = document.getElementById("name-cocktail").value;
-let check2 = document.getElementById("random-cocktail").value;
+let check1 = $("#name-cocktail").value;
+let check2 = $("#random-cocktail").value;
 let cardPlus1 = 1;
 let formSearch = $(".mb-3");
 
@@ -46,7 +46,7 @@ function getRandomCocktail() {
     response
   ) {
     if (response.status !== 200) {
-      console.log("On a un problème Chef. Status du code : " + response.status);
+      console.log("On a un problème. Status du code : " + response.status);
       return;
     }
     response.json().then(function (data) {
@@ -60,7 +60,7 @@ function findByName() {
   document
     .querySelector("#cocktail-name")
     .addEventListener("input", function () {
-      if (this.value.length >= 4) {
+      if (this.value.length > 4) {
         let url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${this.value}`;
         fetch(url).then((response) =>
           response.json().then((data) => {
@@ -70,6 +70,11 @@ function findByName() {
         );
       }
     });
+}
+
+function getIdJson() {
+  localStorage.setItem(idDrinks);
+  console.log(idDrinks);
 }
 
 function displayRandomCocktail(cocktail) {
@@ -86,11 +91,19 @@ function displayRandomCocktail(cocktail) {
 
     let card = document.createElement("div");
     card.setAttribute("class", "card-random " + "card-" + cardPlus1++);
-    card.setAttribute("onclick", "clickCardModal()");
+    card.setAttribute("onclick", "clickChargePage2()");
 
     console.log("Card Plus = " + cardPlus1);
 
-    console.log(cocktail.drinks[0]);
+    idDrinks = document.createElement("form");
+    idDrinks.setAttribute("action", "page-2.html");
+    idDrinks.setAttribute("method", "get");
+    idDrinks.setAttribute("name", "parameters");
+    idDrinks = cocktail.drinks[x].idDrink;
+    console.log("ID : " + idDrinks);
+
+    // /* Journalisation de la valeur de la propriété `drinks` de l'objet `cocktail`. */
+    console.log(cocktail.drinks[x]);
     /* Création d'un nouvel élément appelé drinkName et définition de innerHTML sur la valeur de la
   propriété strDrink du premier élément du tableau drinks. */
     let drinkName = document.createElement("h2");
@@ -102,7 +115,7 @@ function displayRandomCocktail(cocktail) {
     img.src = cocktail.drinks[x].strDrinkThumb;
 
     card.appendChild(img);
-
+    idDrinks.innerHTML += "</form>";
     /* C'est une boucle qui s'exécutera 15 fois. */
     // for (let i = 1; i < 16; i++) {
     //   /* Créer un nouvel élément appelé ingrédient et l'ajouter à l'élément de la carte. */
@@ -137,8 +150,6 @@ function displayRandomCocktail(cocktail) {
 }
 
 function displayNameCocktail(cocktail) {
-  // console.log(cocktail.drinks[0]);
-
   /* Vérifier si le compteur est inférieur ou égal à 2 et si le onClickByName est vrai et si le
   onClickRandom est faux. Si tout cela est vrai, il appellera la fonction findByName. */
   if (compteur <= 22 && onClickByName == true && onClickRandom == false) {
@@ -150,7 +161,6 @@ function displayNameCocktail(cocktail) {
     let card = document.createElement("div");
     card.setAttribute("class", "card-name");
 
-    console.log(cocktail.drinks[x]);
     /* Création d'un nouvel élément appelé drinkName et définition de innerHTML sur la valeur de la
   propriété strDrink du premier élément du tableau drinks. */
     let drinkName = document.createElement("h2");
@@ -194,4 +204,9 @@ function displayNameCocktail(cocktail) {
     console.log("Compteur Name = " + compteur);
   }
   /* Incrémentation du compteur. */
+}
+
+function clickChargePage2() {
+  window.open("page-2.html", "_blank");
+  getIdJson();
 }
