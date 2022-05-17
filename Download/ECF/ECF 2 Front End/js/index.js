@@ -8,6 +8,7 @@ jQuery(document).ready(function ($) {
   let compteur = 0;
 
   //   -------------------- Boutons Click ------------------
+  window.onload = getAlbums();
   document.getElementById("btn-albums").addEventListener("click", getAlbums);
   document.getElementById("btn-series").addEventListener("click", getSeries);
   document.getElementById("btn-auteurs").addEventListener("click", getAuteurs);
@@ -34,51 +35,56 @@ jQuery(document).ready(function ($) {
           auteur.nom
       );
       // --------------------- Afficher les BD's ------------------
-      preview.innerHTML = "";
+      if (compteur <= 1) {
+        preview.innerHTML = "";
 
-      let card = document.createElement("div");
-      card.setAttribute("class", "card");
+        let card = document.createElement("div");
+        card.setAttribute("class", "card");
 
-      const titleAlbum = document.createElement("div");
-      titleAlbum.setAttribute("class", "top-title");
-      titleAlbum.innerHTML = "<h3>" + album.titre + "</h1>";
+        const titleAlbum = document.createElement("div");
+        titleAlbum.setAttribute("class", "top-title");
+        titleAlbum.innerHTML = "<h3>" + album.titre + "</h1>";
 
-      card.append(titleAlbum);
+        card.append(titleAlbum);
 
-      /* Création d'un élément div avec la classe corp-de-page puis ajout de la série,
+        /* Création d'un élément div avec la classe corp-de-page puis ajout de la série,
       de l'auteur et du prix. */
-      let cdp = document.createElement("div");
-      cdp.setAttribute("class", "corp-de-page");
-      cdp.innerHTML =
-        "<h5><span>" +
-        series.get(album.idSerie).nom +
-        "<br></span> <span> Auteur(s) :</span> " +
-        auteurs.get(album.idAuteur).nom +
-        "<br> <span> Prix :</span> " +
-        album.prix +
-        "</h5>";
+        let cdp = document.createElement("div");
+        cdp.setAttribute("class", "corp-de-page");
+        cdp.innerHTML =
+          "<h5><span>" +
+          series.get(album.idSerie).nom +
+          "<br></span> <span> Auteur(s) :</span> " +
+          auteurs.get(album.idAuteur).nom +
+          "<br> <span> Prix :</span> " +
+          album.prix +
+          "</h5>";
 
-      card.append(cdp);
+        card.append(cdp);
 
-      var nomFic = serie.nom + "-" + album.numero + "-" + album.titre;
+        var nomFic = serie.nom + "-" + album.numero + "-" + album.titre;
 
-      // Utilisation d'une expression régulière pour supprimer
-      // les caractères non autorisés dans les noms de fichiers : '!?.":$
-      nomFic = nomFic.replace(/'|!|\?|\.|"|:|\$/g, "");
+        // Utilisation d'une expression régulière pour supprimer
+        // les caractères non autorisés dans les noms de fichiers : '!?.":$
+        nomFic = nomFic.replace(/'|!|\?|\.|"|:|\$/g, "");
 
-      /* Créer un élément div avec la classe d'images, affiche l'image puis l'ajoute à la carte. */
-      let albumPhotoMini = document.createElement("div");
-      albumPhotoMini.setAttribute("class", "images");
-      albumPhotoMini.innerHTML =
-        "<img src='" + srcAlbumMini + nomFic + ".jpg" + "'></img>";
+        /* Créer un élément div avec la classe d'images, affiche l'image puis l'ajoute à la carte. */
+        let albumPhotoMini = document.createElement("div");
+        albumPhotoMini.setAttribute("class", "images");
+        albumPhotoMini.innerHTML =
+          "<img src='" + srcAlbumMini + nomFic + ".jpg" + "'></img>";
 
-      card.append(albumPhotoMini);
+        card.append(albumPhotoMini);
 
-      preview.append(card);
+        preview.append(card);
+      } else {
+        location.reload();
+        compteur--;
+      }
     });
   }
 
-  // -------------------- Fin de la Fonction getAlbum ------------------
+  // -------------------- Fin de la Fonction getAlbums ------------------
 
   async function getSeries() {
     console.log("Liste des albums par série");
@@ -136,9 +142,39 @@ jQuery(document).ready(function ($) {
   console.log(mapToObject(albums));
 
   function research(albums) {
-    var recherche = $("#research").value;
+    //on fait une recherche sur la map des albums:
+    //EX: Je ne veux que les albums avec l'auteur Arleston, Mourier (idAuteur=11)
 
-    console.log(recherche);
+    // Dans un premier temps on va aller recupérer l'id de l'auteur selon la saisie utilisateur (qui sera un input)
+
+    var idAuteurToSave = 0;
+    for (var [idAuteur, auteur] of auteurs.entries()) {
+      if (auteur.nom == "Arleston, Mourier") {
+        //remplacer le nom de l'auteur ici par le choix de l'utilisateur
+        //on est sur le bon: on sauvegarde l'id, puis on sort de la boucle
+        console.log("on est làààààààààà  " + idAuteur);
+        idAuteurToSave = parseInt(idAuteur);
+        break;
+      }
+    }
+    // on a notre idAuteur, on fait notre petit filtre
+    if (idAuteurToSave > 0) {
+      for (var [idAlbum, album] of albums.entries()) {
+        if (album.idAuteur == idAuteurToSave) {
+          serie = series.get(album.idSerie);
+          auteur = auteurs.get(album.idAuteur);
+          console.log(
+            album.titre +
+              " N°" +
+              album.numero +
+              " Série:" +
+              serie.nom +
+              " Auteur:" +
+              auteur.nom
+          );
+        }
+      }
+    }
   }
 
   // Affichage des BD
@@ -170,46 +206,46 @@ jQuery(document).ready(function ($) {
    *
    * @param {number} num
    */
-  function getAlbum(num) {
-    var album = albums.get(num.value);
+  // function getAlbum(num) {
+  //   var album = albums.get(num.value);
 
-    if (album === undefined) {
-      txtSerie.value = "";
-      txtNumero.value = "";
-      txtTitre.value = "";
-      txtAuteur.value = "";
-      txtPrix.value = 0;
+  //   if (album === undefined) {
+  //     txtSerie.value = "";
+  //     txtNumero.value = "";
+  //     txtTitre.value = "";
+  //     txtAuteur.value = "";
+  //     txtPrix.value = 0;
 
-      afficheAlbums(
-        $("#albumMini"),
-        $("#album"),
-        albumDefaultMini,
-        albumDefault
-      );
-    } else {
-      var serie = series.get(album.idSerie);
-      var auteur = auteurs.get(album.idAuteur);
+  //     afficheAlbums(
+  //       $("#albumMini"),
+  //       $("#album"),
+  //       albumDefaultMini,
+  //       albumDefault
+  //     );
+  //   } else {
+  //     var serie = series.get(album.idSerie);
+  //     var auteur = auteurs.get(album.idAuteur);
 
-      txtSerie.value = serie.nom;
-      txtNumero.value = album.numero;
-      txtTitre.value = album.titre;
-      txtAuteur.value = auteur.nom;
-      txtPrix.value = album.prix;
+  //     txtSerie.value = serie.nom;
+  //     txtNumero.value = album.numero;
+  //     txtTitre.value = album.titre;
+  //     txtAuteur.value = auteur.nom;
+  //     txtPrix.value = album.prix;
 
-      var nomFic = serie.nom + "-" + album.numero + "-" + album.titre;
+  //     var nomFic = serie.nom + "-" + album.numero + "-" + album.titre;
 
-      // Utilisation d'une expression régulière pour supprimer
-      // les caractères non autorisés dans les noms de fichiers : '!?.":$
-      nomFic = nomFic.replace(/'|!|\?|\.|"|:|\$/g, "");
+  //     // Utilisation d'une expression régulière pour supprimer
+  //     // les caractères non autorisés dans les noms de fichiers : '!?.":$
+  //     nomFic = nomFic.replace(/'|!|\?|\.|"|:|\$/g, "");
 
-      afficheAlbums(
-        $("#albumMini"),
-        $("#album"),
-        srcAlbumMini + nomFic + ".jpg",
-        srcAlbum + nomFic + ".jpg"
-      );
-    }
-  }
+  //     afficheAlbums(
+  //       $("#albumMini"),
+  //       $("#album"),
+  //       srcAlbumMini + nomFic + ".jpg",
+  //       srcAlbum + nomFic + ".jpg"
+  //     );
+  //   }
+  // }
 
   /**
    * Affichage des images, les effets sont chainés et traités

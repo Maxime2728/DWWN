@@ -1,2 +1,4 @@
 Affichage des informations (Titre, photo, auteur(s), prix) : V
 Fonction recherche (Par Auteur, par Série et par Album) :
+
+Faire le CSS :

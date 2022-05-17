@@ -29,12 +29,21 @@
         </button>
       </div>
 
-      <form>
-        <div id="chercher" class="chercher">
-          <!-- <label for="research">Rechercher :</label> -->
-          <input type="search" name="q" id="research" autofocus />
-          <input type="submit" value="Rechercher" class="btn btn-dark" />
-        </div>
+      <form id="chercher" class="chercher">
+        <input
+          type="search"
+          name="q"
+          id="research"
+          class="research"
+          autofocus
+        />
+        <br />
+        <input
+          type="submit"
+          value="Rechercher"
+          class="btn btn-dark search"
+          onclick="research()"
+        />
       </form>
     </header>
 
