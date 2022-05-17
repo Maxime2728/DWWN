@@ -1,5 +1,5 @@
 let compteur = 0;
-let color;
+let 
 
 // Permet de récuprer la string de la Text Area
 function getData() {
@@ -8,9 +8,9 @@ function getData() {
 
   console.log(e.value);
 
-  switch (e) {
+  switch (e.value) {
     case "blue":
-      element.style.backgroundColor = "blue";
+      element.style.backgroundColor = blue;
       break;
   }
 }

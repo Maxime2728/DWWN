@@ -12,6 +12,9 @@ jQuery(document).ready(function ($) {
   document.getElementById("btn-albums").addEventListener("click", getAlbums);
   document.getElementById("btn-series").addEventListener("click", getSeries);
   document.getElementById("btn-auteurs").addEventListener("click", getAuteurs);
+  var clickSearch = document
+    .getElementById("btn-search")
+    .addEventListener("click", research);
 
   // Lecture d'un album
   async function getAlbums() {
@@ -130,31 +133,39 @@ jQuery(document).ready(function ($) {
 
   // -------------------- Fin de la Fonction getAuteurs ------------------
 
-  function mapToObject(map) {
-    return Object.assign(
-      Object.create(null),
-      ...[...map].map((v) => ({ [v[0]]: v[1] }))
-    );
-  }
+  // --- Fonction pour récupérer les Map en Objets
 
-  /*
-    // On transforme la map en objets*/
-  console.log(mapToObject(albums));
+  // function mapToObject(map) {
+  //   return Object.assign(
+  //     Object.create(null),
+  //     ...[...map].map((v) => ({ [v[0]]: v[1] }))
+  //   );
+  // }
+
+  // /*
+  //   // On affiche les map en objets*/
+  // console.log(mapToObject(albums));
 
   function research(albums) {
     //on fait une recherche sur la map des albums:
     //EX: Je ne veux que les albums avec l'auteur Arleston, Mourier (idAuteur=11)
 
     // Dans un premier temps on va aller recupérer l'id de l'auteur selon la saisie utilisateur (qui sera un input)
+    var auteurNom = document.getElementById("research").value;
+
+    console.log(auteurNom);
 
     var idAuteurToSave = 0;
     for (var [idAuteur, auteur] of auteurs.entries()) {
-      if (auteur.nom == "Arleston, Mourier") {
+      if (auteur.nom == auteurNom) {
         //remplacer le nom de l'auteur ici par le choix de l'utilisateur
         //on est sur le bon: on sauvegarde l'id, puis on sort de la boucle
         console.log("on est làààààààààà  " + idAuteur);
         idAuteurToSave = parseInt(idAuteur);
+        console.log(idAuteurToSave);
         break;
+      } else {
+        console.log(auteurNom + " n'est pas un nom valide");
       }
     }
     // on a notre idAuteur, on fait notre petit filtre
@@ -176,6 +187,8 @@ jQuery(document).ready(function ($) {
       }
     }
   }
+
+  // -------------------- Fin de la Fonction Research ------------------
 
   // Affichage des BD
   var txtSerie = document.getElementById("serie");

@@ -29,22 +29,19 @@
         </button>
       </div>
 
-      <form id="chercher" class="chercher">
+      <div id="chercher" class="chercher">
         <input
-          type="search"
+          type="text"
           name="q"
           id="research"
           class="research"
-          autofocus
+          value=""
         />
         <br />
-        <input
-          type="submit"
-          value="Rechercher"
-          class="btn btn-dark search"
-          onclick="research()"
-        />
-      </form>
+        <button type="button" id="btn-search" class="btn btn-dark btn-search">
+          Rechercher
+        </button>
+      </div>
     </header>
 
     <div id="preview"></div>
