@@ -92,8 +92,9 @@ h3{
 .research{
   grid-column: 2;
   justify-items: center;
-  border-radius: 20px;
+  border-radius: 10px;
   width: 100%;
+  height: 30px;
 }
 
 .btn-search{

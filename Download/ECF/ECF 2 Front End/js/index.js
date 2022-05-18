@@ -1,264 +1,23 @@
+const srcImg = "images/"; // emplacement des images de l'appli
+const albumDefaultMini = srcImg + "noComicsMini.jpeg";
+const albumDefault = srcImg + "noComics.jpeg";
+const srcAlbumMini = "albumsMini/"; // emplacement des images des albums en petit
+const srcAlbum = "albums/"; // emplacement des images des albums en grand
+const preview = $("#preview");
+const search = $("#search");
+let compteur = 0;
+let getByAlbum = 0;
+let getBySerie = 0;
+let getByAuteur = 0;
+let recherche = document.getElementById("research").value;
+
 jQuery(document).ready(function ($) {
-  const srcImg = "images/"; // emplacement des images de l'appli
-  const albumDefaultMini = srcImg + "noComicsMini.jpeg";
-  const albumDefault = srcImg + "noComics.jpeg";
-  const srcAlbumMini = "albumsMini/"; // emplacement des images des albums en petit
-  const srcAlbum = "albums/"; // emplacement des images des albums en grand
-  const preview = $("#preview");
-  let compteur = 0;
-
-  //   -------------------- Boutons Click ------------------
-  window.onload = getAlbums();
-  document.getElementById("btn-albums").addEventListener("click", getAlbums);
-  document.getElementById("btn-series").addEventListener("click", getSeries);
-  document.getElementById("btn-auteurs").addEventListener("click", getAuteurs);
-  var clickSearch = document
-    .getElementById("btn-search")
-    .addEventListener("click", research);
-
-  // Lecture d'un album
-  async function getAlbums() {
-    $("#showorhide").hide();
-    compteur++;
-    console.log(compteur);
-
-    // -------------------- Console Log --------------------------
-
-    console.log("Liste des albums");
-    albums.forEach((album) => {
-      serie = series.get(album.idSerie);
-      auteur = auteurs.get(album.idAuteur);
-      console.log(
-        album.titre +
-          " N°" +
-          album.numero +
-          " Série:" +
-          serie.nom +
-          " Auteur:" +
-          auteur.nom
-      );
-      // --------------------- Afficher les BD's ------------------
-      if (compteur <= 1) {
-        preview.innerHTML = "";
-
-        let card = document.createElement("div");
-        card.setAttribute("class", "card");
-
-        const titleAlbum = document.createElement("div");
-        titleAlbum.setAttribute("class", "top-title");
-        titleAlbum.innerHTML = "<h3>" + album.titre + "</h1>";
-
-        card.append(titleAlbum);
-
-        /* Création d'un élément div avec la classe corp-de-page puis ajout de la série,
-      de l'auteur et du prix. */
-        let cdp = document.createElement("div");
-        cdp.setAttribute("class", "corp-de-page");
-        cdp.innerHTML =
-          "<h5><span>" +
-          series.get(album.idSerie).nom +
-          "<br></span> <span> Auteur(s) :</span> " +
-          auteurs.get(album.idAuteur).nom +
-          "<br> <span> Prix :</span> " +
-          album.prix +
-          "</h5>";
-
-        card.append(cdp);
-
-        var nomFic = serie.nom + "-" + album.numero + "-" + album.titre;
-
-        // Utilisation d'une expression régulière pour supprimer
-        // les caractères non autorisés dans les noms de fichiers : '!?.":$
-        nomFic = nomFic.replace(/'|!|\?|\.|"|:|\$/g, "");
-
-        /* Créer un élément div avec la classe d'images, affiche l'image puis l'ajoute à la carte. */
-        let albumPhotoMini = document.createElement("div");
-        albumPhotoMini.setAttribute("class", "images");
-        albumPhotoMini.innerHTML =
-          "<img src='" + srcAlbumMini + nomFic + ".jpg" + "'></img>";
-
-        card.append(albumPhotoMini);
-
-        preview.append(card);
-      } else {
-        location.reload();
-        compteur--;
-      }
-    });
-  }
-
-  // -------------------- Fin de la Fonction getAlbums ------------------
-
-  async function getSeries() {
-    console.log("Liste des albums par série");
-    for (var [idSerie, serie] of series.entries()) {
-      // Recherche des albums de la série
-      for (var [idAlbum, album] of albums.entries()) {
-        if (album.idSerie == idSerie) {
-          console.log(
-            serie.nom +
-              ", Album N°" +
-              album.numero +
-              " " +
-              album.titre +
-              ", Auteur:" +
-              auteurs.get(album.idAuteur).nom
-          );
-        }
-      }
-    }
-  }
-
-  // -------------------- Fin de la Fonction getSeries ------------------
-
-  async function getAuteurs() {
-    console.log("Liste des albums par auteur");
-    for (var [idAuteur, auteur] of auteurs.entries()) {
-      // Recherche des albums de l'auteur
-      for (var [idAlbum, album] of albums.entries()) {
-        if (album.idAuteur == idAuteur) {
-          console.log(
-            auteur.nom +
-              ", Album N°" +
-              album.numero +
-              " " +
-              album.titre +
-              ", Série:" +
-              series.get(album.idSerie).nom
-          );
-        }
-      }
-    }
-  }
-
-  // -------------------- Fin de la Fonction getAuteurs ------------------
-
-  // --- Fonction pour récupérer les Map en Objets
-
-  // function mapToObject(map) {
-  //   return Object.assign(
-  //     Object.create(null),
-  //     ...[...map].map((v) => ({ [v[0]]: v[1] }))
-  //   );
-  // }
-
-  // /*
-  //   // On affiche les map en objets*/
-  // console.log(mapToObject(albums));
-
-  function research(albums) {
-    //on fait une recherche sur la map des albums:
-    //EX: Je ne veux que les albums avec l'auteur Arleston, Mourier (idAuteur=11)
-
-    // Dans un premier temps on va aller recupérer l'id de l'auteur selon la saisie utilisateur (qui sera un input)
-    var auteurNom = document.getElementById("research").value;
-
-    console.log(auteurNom);
-
-    var idAuteurToSave = 0;
-    for (var [idAuteur, auteur] of auteurs.entries()) {
-      if (auteur.nom == auteurNom) {
-        //remplacer le nom de l'auteur ici par le choix de l'utilisateur
-        //on est sur le bon: on sauvegarde l'id, puis on sort de la boucle
-        console.log("on est làààààààààà  " + idAuteur);
-        idAuteurToSave = parseInt(idAuteur);
-        console.log(idAuteurToSave);
-        break;
-      } else {
-        console.log(auteurNom + " n'est pas un nom valide");
-      }
-    }
-    // on a notre idAuteur, on fait notre petit filtre
-    if (idAuteurToSave > 0) {
-      for (var [idAlbum, album] of albums.entries()) {
-        if (album.idAuteur == idAuteurToSave) {
-          serie = series.get(album.idSerie);
-          auteur = auteurs.get(album.idAuteur);
-          console.log(
-            album.titre +
-              " N°" +
-              album.numero +
-              " Série:" +
-              serie.nom +
-              " Auteur:" +
-              auteur.nom
-          );
-        }
-      }
-    }
-  }
-
-  // -------------------- Fin de la Fonction Research ------------------
-
-  // Affichage des BD
-  var txtSerie = document.getElementById("serie");
-  var txtNumero = document.getElementById("numero");
-  var txtTitre = document.getElementById("titre");
-  var txtAuteur = document.getElementById("auteur");
-  var txtPrix = document.getElementById("prix");
-  var imgAlbum = document.getElementById("album");
-  var imgAlbumMini = document.getElementById("albumMini");
-
-  /* Ajout d'un écouteur d'événement aux éléments imgAlbum et imgAlbumMini. */
-  imgAlbum.addEventListener("error", function () {
-    prbImg(this);
-  });
-
-  imgAlbumMini.addEventListener("error", function () {
-    prbImg(this);
-  });
-
-  var id = document.getElementById("id");
-  id.addEventListener("change", function () {
-    getAlbum(this);
-  });
-
   /**
    * Récupération de l'album par son id et appel de
    * la fonction d'affichage
    *
    * @param {number} num
    */
-  // function getAlbum(num) {
-  //   var album = albums.get(num.value);
-
-  //   if (album === undefined) {
-  //     txtSerie.value = "";
-  //     txtNumero.value = "";
-  //     txtTitre.value = "";
-  //     txtAuteur.value = "";
-  //     txtPrix.value = 0;
-
-  //     afficheAlbums(
-  //       $("#albumMini"),
-  //       $("#album"),
-  //       albumDefaultMini,
-  //       albumDefault
-  //     );
-  //   } else {
-  //     var serie = series.get(album.idSerie);
-  //     var auteur = auteurs.get(album.idAuteur);
-
-  //     txtSerie.value = serie.nom;
-  //     txtNumero.value = album.numero;
-  //     txtTitre.value = album.titre;
-  //     txtAuteur.value = auteur.nom;
-  //     txtPrix.value = album.prix;
-
-  //     var nomFic = serie.nom + "-" + album.numero + "-" + album.titre;
-
-  //     // Utilisation d'une expression régulière pour supprimer
-  //     // les caractères non autorisés dans les noms de fichiers : '!?.":$
-  //     nomFic = nomFic.replace(/'|!|\?|\.|"|:|\$/g, "");
-
-  //     afficheAlbums(
-  //       $("#albumMini"),
-  //       $("#album"),
-  //       srcAlbumMini + nomFic + ".jpg",
-  //       srcAlbum + nomFic + ".jpg"
-  //     );
-  //   }
-  // }
 
   /**
    * Affichage des images, les effets sont chainés et traités
@@ -300,3 +59,373 @@ jQuery(document).ready(function ($) {
     else element.src = albumDefault;
   }
 });
+
+// ---------------------------------------------------------------------------------
+
+// -------------------- Debut de la Fonction getAlbums ------------------
+
+// Lecture d'un album
+async function getAlbums() {
+  $("#showorhide").hide();
+  compteur++;
+  console.log("Compteur : " + compteur);
+
+  // -------------------- Console Log --------------------------
+
+  console.log("Liste des albums");
+  albums.forEach((album) => {
+    serie = series.get(album.idSerie);
+    auteur = auteurs.get(album.idAuteur);
+    console.log(
+      album.titre +
+        " N°" +
+        album.numero +
+        " Série:" +
+        serie.nom +
+        " Auteur:" +
+        auteur.nom
+    );
+    // --------------------- Afficher les BD's ------------------
+    if (compteur <= 1) {
+      preview.innerHTML = "";
+
+      let card = document.createElement("div");
+      card.setAttribute("class", "card");
+
+      const titleAlbum = document.createElement("div");
+      titleAlbum.setAttribute("class", "top-title");
+      titleAlbum.innerHTML = "<h3>" + album.titre + "</h1>";
+
+      card.append(titleAlbum);
+
+      /* Création d'un élément div avec la classe corp-de-page puis ajout de la série,
+      de l'auteur et du prix. */
+      let cdp = document.createElement("div");
+      cdp.setAttribute("class", "corp-de-page");
+      cdp.innerHTML =
+        "<h5><span>" +
+        series.get(album.idSerie).nom +
+        "<br></span> <span> Auteur(s) :</span> " +
+        auteurs.get(album.idAuteur).nom +
+        "<br> <span> Prix :</span> " +
+        album.prix +
+        "€</h5>";
+
+      card.append(cdp);
+
+      var nomFic = serie.nom + "-" + album.numero + "-" + album.titre;
+
+      // Utilisation d'une expression régulière pour supprimer
+      // les caractères non autorisés dans les noms de fichiers : '!?.":$
+      nomFic = nomFic.replace(/'|!|\?|\.|"|:|\$/g, "");
+
+      /* Créer un élément div avec la classe d'images, affiche l'image puis l'ajoute à la carte. */
+      let albumPhotoMini = document.createElement("div");
+      albumPhotoMini.setAttribute("class", "images");
+      albumPhotoMini.innerHTML =
+        "<img src='" + srcAlbumMini + nomFic + ".jpg" + "'></img>";
+
+      card.append(albumPhotoMini);
+
+      preview.append(card);
+    } else {
+      location.reload();
+      compteur--;
+    }
+  });
+}
+
+// -------------------- Fin de la Fonction getAlbums ------------------
+
+// -------------------- Debut de la Fonction getByAlbums ------------------
+
+async function getByAlbums() {
+  console.log("By Albums");
+  if (getByAlbum == 0) {
+    getByAlbum++;
+    getBySerie = 0;
+    getByAuteur = 0;
+    console.log(getByAlbum);
+    console.log(getBySerie);
+    console.log(getByAuteur);
+  } else if (getByAlbum == 1) {
+    getByAlbum--;
+    console.log(getByAlbum);
+  }
+}
+
+// -------------------- Fin de la Fonction getByAlbum ------------------
+
+// -------------------- Debut de la Fonction getBySeries ------------------
+
+async function getBySeries() {
+  console.log("By Series");
+  if (getBySerie == 0) {
+    getBySerie++;
+    getByAlbum = 0;
+    getByAuteur = 0;
+    console.log(getBySerie);
+    console.log(getByAlbum);
+    console.log(getByAuteur);
+  } else if (getBySerie == 1) {
+    getBySerie--;
+    console.log(getBySerie);
+  }
+}
+
+// -------------------- Fin de la Fonction getSeries ------------------
+
+// -------------------- Debut de la Fonction getByAuteurs ------------------
+
+async function getByAuteurs() {
+  console.log("By Auteurs");
+  if (getByAuteur == 0) {
+    getByAuteur++;
+    getBySerie = 0;
+    getByAlbum = 0;
+    console.log(getByAuteur);
+    console.log(getBySerie);
+    console.log(getByAlbum);
+  } else if (getByAuteur == 1) {
+    getByAuteur--;
+    console.log(getByAuteur);
+  }
+}
+
+// -------------------- Fin de la Fonction getAuteurs ------------------
+
+// -------------------- Debut de la Fonction research ------------------
+
+function chercher() {
+  //on fait une recherche sur la map des albums:
+  //EX: Je ne veux que les albums avec l'auteur Arleston, Mourier (idAuteur=11)
+
+  // Dans un premier temps on va aller recupérer l'id de l'auteur selon la saisie utilisateur (qui sera un input)
+
+  console.log("Recherche : " + recherche);
+  // --------------- Début de la fonction recherche par Auteurs ---------------
+  if (getByAuteur == 1) {
+    var idAuteurToSave = 0;
+    for (var [idAuteur, auteur] of auteurs.entries()) {
+      if (auteur.nom == recherche) {
+        //remplacer le nom de l'auteur ici par le choix de l'utilisateur
+        //on est sur le bon: on sauvegarde l'id, puis on sort de la boucle
+        console.log("on est làààààààààà  " + idAuteur);
+        idAuteurToSave = parseInt(idAuteur);
+        break;
+      }
+    }
+    // on a notre idAuteur, on fait notre petit filtre
+    if (idAuteurToSave > 0) {
+      for (var [idAlbum, album] of albums.entries()) {
+        if (album.idAuteur == idAuteurToSave) {
+          serie = series.get(album.idSerie);
+          auteur = auteurs.get(album.idAuteur);
+          console.log(
+            album.titre +
+              " N°" +
+              album.numero +
+              " Série:" +
+              serie.nom +
+              " Auteur:" +
+              auteur.nom
+          );
+
+          // --------------- Affiche les éléments de recherche par Auteurs ---------------
+
+          if (getByAuteur == 1 && recherche == auteur.nom) {
+            $("#preview").hide();
+            search.innerHTML = "";
+            let card = document.createElement("div");
+            card.setAttribute("class", "card");
+
+            const titleAlbum = document.createElement("div");
+            titleAlbum.setAttribute("class", "top-title");
+            titleAlbum.innerHTML = "<h3>" + album.titre + "</h1>";
+
+            card.append(titleAlbum);
+            /* Création d'un élément div avec la classe corp-de-page puis ajout de la série,
+            de l'auteur et du prix. */
+            let cdp = document.createElement("div");
+            cdp.setAttribute("class", "corp-de-page");
+            cdp.innerHTML =
+              "<h5><span>" +
+              series.get(album.idSerie).nom +
+              "<br></span> <span> Auteur(s) :</span> " +
+              auteurs.get(album.idAuteur).nom +
+              "<br> <span> Prix :</span> " +
+              album.prix +
+              "€</h5>";
+
+            card.append(cdp);
+
+            var nomFic = serie.nom + "-" + album.numero + "-" + album.titre;
+
+            // Utilisation d'une expression régulière pour supprimer
+            // les caractères non autorisés dans les noms de fichiers : '!?.":$
+            nomFic = nomFic.replace(/'|!|\?|\.|"|:|\$/g, "");
+
+            /* Créer un élément div avec la classe d'images, affiche l'image puis l'ajoute à la carte. */
+            let albumPhotoMini = document.createElement("div");
+            albumPhotoMini.setAttribute("class", "images");
+            albumPhotoMini.innerHTML =
+              "<img src='" + srcAlbumMini + nomFic + ".jpg" + "'></img>";
+
+            card.append(albumPhotoMini);
+
+            search.append(card);
+          }
+        }
+      }
+    }
+  }
+
+  // --------------- Fin de la Fonction recherche par Auteurs ---------------
+
+  // --------------- Début de la fonction recherche par Albums ---------------
+
+  if (getByAlbum == 1) {
+    for (var [idAlbum, album] of albums.entries()) {
+      if (album.titre == recherche) {
+        serie = series.get(album.idSerie);
+        auteur = auteurs.get(album.idAuteur);
+        console.log(
+          album.titre +
+            " N°" +
+            album.numero +
+            " Série:" +
+            serie.nom +
+            " Auteur:" +
+            auteur.nom
+        );
+
+        // --------------- Affiche les éléments de recherche par Albums ---------------
+
+        if (getByAlbum == 1 && recherche == album.titre) {
+          $("#preview").hide();
+          search.innerHTML = "";
+          let card = document.createElement("div");
+          card.setAttribute("class", "card");
+
+          const titleAlbum = document.createElement("div");
+          titleAlbum.setAttribute("class", "top-title");
+          titleAlbum.innerHTML = "<h3>" + album.titre + "</h1>";
+
+          card.append(titleAlbum);
+          /* Création d'un élément div avec la classe corp-de-page puis ajout de la série,
+            de l'auteur et du prix. */
+          let cdp = document.createElement("div");
+          cdp.setAttribute("class", "corp-de-page");
+          cdp.innerHTML =
+            "<h5><span>" +
+            series.get(album.idSerie).nom +
+            "<br></span> <span> Auteur(s) :</span> " +
+            auteurs.get(album.idAuteur).nom +
+            "<br> <span> Prix :</span> " +
+            album.prix +
+            "€</h5>";
+
+          card.append(cdp);
+
+          var nomFic = serie.nom + "-" + album.numero + "-" + album.titre;
+
+          // Utilisation d'une expression régulière pour supprimer
+          // les caractères non autorisés dans les noms de fichiers : '!?.":$
+          nomFic = nomFic.replace(/'|!|\?|\.|"|:|\$/g, "");
+
+          /* Créer un élément div avec la classe d'images, affiche l'image puis l'ajoute à la carte. */
+          let albumPhotoMini = document.createElement("div");
+          albumPhotoMini.setAttribute("class", "images");
+          albumPhotoMini.innerHTML =
+            "<img src='" + srcAlbumMini + nomFic + ".jpg" + "'></img>";
+
+          card.append(albumPhotoMini);
+
+          search.append(card);
+        }
+      }
+    }
+  }
+
+  // --------------- Fin de la Fonction recherche par Albums ---------------
+
+  // --------------- Début de la fonction recherche par Series ---------------
+
+  if (getBySerie == 1) {
+    var idSerieToSave = 0;
+    for (var [idSerie, serie] of series.entries()) {
+      if (serie.nom == recherche) {
+        //remplacer le nom de l'auteur ici par le choix de l'utilisateur
+        //on est sur le bon: on sauvegarde l'id, puis on sort de la boucle
+        console.log("on est làààààààààà  " + idSerie);
+        idSerieToSave = parseInt(idSerie);
+        break;
+      }
+    }
+    // on a notre idAuteur, on fait notre petit filtre
+    if (idSerieToSave > 0) {
+      for (var [idAlbum, album] of albums.entries()) {
+        if (album.idSerie == idSerieToSave) {
+          serie = series.get(album.idSerie);
+          auteur = auteurs.get(album.idAuteur);
+          console.log(
+            album.titre +
+              " N°" +
+              album.numero +
+              " Série:" +
+              serie.nom +
+              " Auteur:" +
+              auteur.nom
+          );
+
+          // --------------- Affiche les éléments de recherche par Auteurs ---------------
+
+          if (getBySerie == 1 && recherche == serie.nom) {
+            $("#preview").hide();
+            search.innerHTML = "";
+            let card = document.createElement("div");
+            card.setAttribute("class", "card");
+
+            const titleAlbum = document.createElement("div");
+            titleAlbum.setAttribute("class", "top-title");
+            titleAlbum.innerHTML = "<h3>" + album.titre + "</h1>";
+
+            card.append(titleAlbum);
+            /* Création d'un élément div avec la classe corp-de-page puis ajout de la série,
+            de l'auteur et du prix. */
+            let cdp = document.createElement("div");
+            cdp.setAttribute("class", "corp-de-page");
+            cdp.innerHTML =
+              "<h5><span>" +
+              series.get(album.idSerie).nom +
+              "<br></span> <span> Auteur(s) :</span> " +
+              auteurs.get(album.idAuteur).nom +
+              "<br> <span> Prix :</span> " +
+              album.prix +
+              "€</h5>";
+
+            card.append(cdp);
+
+            var nomFic = serie.nom + "-" + album.numero + "-" + album.titre;
+
+            // Utilisation d'une expression régulière pour supprimer
+            // les caractères non autorisés dans les noms de fichiers : '!?.":$
+            nomFic = nomFic.replace(/'|!|\?|\.|"|:|\$/g, "");
+
+            /* Créer un élément div avec la classe d'images, affiche l'image puis l'ajoute à la carte. */
+            let albumPhotoMini = document.createElement("div");
+            albumPhotoMini.setAttribute("class", "images");
+            albumPhotoMini.innerHTML =
+              "<img src='" + srcAlbumMini + nomFic + ".jpg" + "'></img>";
+
+            card.append(albumPhotoMini);
+
+            search.append(card);
+          }
+        }
+      }
+    }
+  }
+}
+
+// -------------------- Fin de la Fonction Research ------------------
