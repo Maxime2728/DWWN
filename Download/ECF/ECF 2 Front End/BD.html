@@ -22,7 +22,7 @@
           type="button"
           id="btn-albums"
           class="btn btn-dark"
-          onclick="getByAlbums()"
+          onclick="getByAlbums(), clearSearch()"
         >
           Albums
         </button>
@@ -30,7 +30,7 @@
           type="button"
           id="btn-auteurs"
           class="btn btn-dark"
-          onclick="getByAuteurs()"
+          onclick="getByAuteurs(), clearSearch()"
         >
           Auteurs
         </button>
@@ -38,7 +38,7 @@
           type="button"
           id="btn-series"
           class="btn btn-dark"
-          onclick="getBySeries()"
+          onclick="getBySeries(), clearSearch()"
         >
           Séries
         </button>
@@ -61,7 +61,35 @@
       </div>
     </header>
 
+    <div id="refresh">
+      <!-- <p class="cache">T</p> -->
+      <button onclick="refreshPage()" class="btn btn-dark refresh">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-arrow-repeat"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"
+          />
+        </svg>
+      </button>
+      <!-- <p class="cache">T</p> -->
+    </div>
+
+    <div id="panier"></div>
+
+    <!-- Affiche tout les Albums -->
     <div id="preview"></div>
+
+    <!-- Affiche les elements recherchés -->
     <div id="search"></div>
     <!-- <div class="container" id="showorhide">
       <h1>Liste des BD</h1>
@@ -96,7 +124,7 @@
             <label for="prix">Prix :</label>
             <input type="number" id="prix" readonly />
           </p>
-          <div is="toto">
+          <div id="toto">
             <img src="images/noComicsMini.jpeg" id="albumMini" />
           </div>
         </div>
