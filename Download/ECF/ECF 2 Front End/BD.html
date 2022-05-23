@@ -14,8 +14,17 @@
     <title>Les BD</title>
   </head>
 
-  <body onload="getAlbums()">
+  <body onload="getAlbums(), btnAppelApi()">
     <header id="en-tete">
+      <div class="appel-api-meteo">
+        <!-- <input
+        type="button"
+        class="btn btn-dark api-meteo"
+        value="APPEL API METEO"
+        onclick="btnAppelApi()"
+      /> -->
+        <p id="api-meteo-p"></p>
+      </div>
       <h3>Afficher par :</h3>
       <div id="boutons-choices">
         <button
@@ -24,7 +33,7 @@
           class="btn btn-dark"
           onclick="getByAlbums(), clearSearch()"
         >
-          Albums
+          Titre
         </button>
         <button
           type="button"
@@ -84,57 +93,26 @@
       <!-- <p class="cache">T</p> -->
     </div>
 
-    <div id="panier"></div>
+    <div class="appel-api-meteo">
+      <!-- <input
+        type="button"
+        class="btn btn-dark api-meteo"
+        value="APPEL API METEO"
+        onclick="btnAppelApi()"
+      /> -->
+      <p id="api-meteo-p"></p>
+    </div>
+
+    <div id="panier">
+      <h3>Votre Panier :</h3>
+    </div>
 
     <!-- Affiche tout les Albums -->
     <div id="preview"></div>
 
     <!-- Affiche les elements recherchés -->
     <div id="search"></div>
-    <!-- <div class="container" id="showorhide">
-      <h1>Liste des BD</h1>
 
-      <div class="row">
-        <div class="col-sm-4 col-lg-6">
-          <p id="messageId">
-            <label for="id">Id de l'album :</label>
-            <input
-              type="number"
-              required
-              id="id"
-              value="0"
-              min="0"
-              title="Saisissez un numéro et validez"
-            />
-          </p>
-          <p>
-            <label for="serie">Série :</label>
-            <input type="text" id="serie" readonly />
-
-            <label for="numero">Album N° :</label>
-            <input type="text" id="numero" readonly />
-
-            <label for="titre">Titre :</label>
-            <input type="text" id="titre" readonly />
-
-            <label for="auteur">Auteur :</label>
-            <input type="text" id="auteur" readonly />
-          </p>
-          <p>
-            <label for="prix">Prix :</label>
-            <input type="number" id="prix" readonly />
-          </p>
-          <div id="toto">
-            <img src="images/noComicsMini.jpeg" id="albumMini" />
-          </div>
-        </div>
-        <div class="col-sm-8 col-lg-6">
-          <img src="images/noComics.jpeg" id="album" />
-        </div>
-      </div>
-    </div> -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

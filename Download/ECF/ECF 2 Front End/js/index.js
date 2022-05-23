@@ -66,11 +66,11 @@ jQuery(document).ready(function ($) {
 
 // -------------------- Debut de la Fonction getAlbums ------------------
 
-// Lecture d'un album
+// Affiche tout les albums
 function getAlbums() {
   $("#showorhide").hide();
   compteurAffichage++;
-  console.log("CompteuracompteurAffichage : " + compteurAffichage);
+  console.log("CompteurAffichage : " + compteurAffichage);
 
   // -------------------- Console Log --------------------------
 
@@ -148,6 +148,7 @@ function getAlbums() {
 
 // -------------------- Debut de la Fonction getByAlbums ------------------
 
+//Affiche les recherches par Albums
 function getByAlbums() {
   console.log("By Albums");
   if (getByAlbum == 0) {
@@ -167,6 +168,7 @@ function getByAlbums() {
 
 // -------------------- Debut de la Fonction getBySeries ------------------
 
+//Affiche les recherches par Series
 function getBySeries() {
   console.log("By Series");
   if (getBySerie == 0) {
@@ -186,6 +188,7 @@ function getBySeries() {
 
 // -------------------- Debut de la Fonction getByAuteurs ------------------
 
+//Affiche les recherches par Auteurs
 function getByAuteurs() {
   console.log("By Auteurs");
   if (getByAuteur == 0) {
@@ -208,17 +211,6 @@ function clearSearch() {
     compteurBtn--;
     console.log("CompteurBtn = " + compteurBtn);
     location.reload();
-    if (getByAuteur == 0) {
-      getByAuteur++;
-      getBySerie = 0;
-      getByAlbum = 0;
-      console.log(getByAuteur);
-      console.log(getBySerie);
-      console.log(getByAlbum);
-    } else if (getByAuteur >= 1) {
-      getByAuteur--;
-      console.log(getByAuteur);
-    }
   }
 }
 
@@ -502,6 +494,78 @@ function chercher() {
 
 // -------------------- Fin de la Fonction Chercher() ------------------
 
-// -------------------- Debut de la Fonction Panier ------------------
+function btnAppelApi() {
+  var callBackGetSuccess = function (data) {
+    var element = document.getElementById("api-meteo-p");
+    element.innerHTML =
+      "La temperature à Évreux est de " + data.main.temp + "°C";
+  };
+  var url =
+    "https://api.openweathermap.org/data/2.5/weather?q=Evreux,fr&appid=c21a75b667d6f7abb81f118dcf8d4611&units=metric";
 
-function addToPanier() {}
+  $.get(url, callBackGetSuccess)
+    .done(function () {
+      //alert( "second success" );
+    })
+    .fail(function () {
+      alert("error");
+    })
+    .always(function () {
+      //alert( "finished" );
+    });
+}
+
+function mapToObject(map) {
+  return Object.assign(
+    Object.create(null),
+    ...[...map].map((v) => ({ [v[0]]: v[1] }))
+  );
+}
+
+/*
+  // On transforme la map en objets*/
+console.log(mapToObject(albums));
+
+// -------------------- Debut de la Fonction addToPanier ------------------
+
+// var code =
+
+// function lignePanier(code, qte, prix) {
+//   this.codeArticle = code;
+//   this.qteArticle = qte;
+//   this.prixArticle = prix;
+//   this.ajouterQte = function (qte) {
+//     this.qteArticle += qte;
+//   };
+//   this.getPrixLigne = function () {
+//     var resultat = this.prixArticle * this.qteArticle;
+//     return resultat;
+//   };
+//   this.getCode = function () {
+//     return this.codeArticle;
+//   };
+// };
+
+// function Panier() {
+//   this.liste = [];
+//   this.ajouterArticle = function (code, qte, prix) {
+//     var index = this.getArticle(code);
+//     if (index == -1) this.liste.push(new lignePanier(code, qte, prix));
+//     else this.liste[index].ajouterQte(qte);
+//   };
+//   this.getPrixPanier = function () {
+//     var total = 0;
+//     for (var i = 0; i < this.liste.lenght; i++)
+//       total += this.liste[i].getPrixLigne();
+//     return total;
+//   };
+//   this.getArticle = function (code) {
+//     for (var i = 0; i < this.liste.lenght; i++)
+//       if (code == this.liste[i].getCode()) return i;
+//     return -1;
+//   };
+//   this.supprimerArticle = function (code) {
+//     var index = this.getArticle(code);
+//     if (index > -1) this.liste.splice(index, 1);
+//   };
+// }
