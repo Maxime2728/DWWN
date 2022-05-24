@@ -11,7 +11,6 @@ let compteurBtn = 0;
 let getByAlbum = 0;
 let getBySerie = 0;
 let getByAuteur = 0;
-// let recherche = document.getElementById("research").value;
 
 jQuery(document).ready(function ($) {
   /**
@@ -75,7 +74,7 @@ function getAlbums() {
   // -------------------- Console Log --------------------------
 
   console.log("Liste des albums");
-  albums.forEach((album) => {
+  for (var [idAlbum, album] of albums.entries()) {
     serie = series.get(album.idSerie);
     auteur = auteurs.get(album.idAuteur);
     console.log(
@@ -90,9 +89,10 @@ function getAlbums() {
     // --------------------- Afficher les BD's ------------------
     if (compteurAffichage <= 1) {
       preview.innerHTML = "";
-
+      console.log(album);
       let card = document.createElement("div");
       card.setAttribute("class", "card");
+      card.setAttribute("id", idAlbum);
 
       const titleAlbum = document.createElement("div");
       titleAlbum.setAttribute("class", "top-title");
@@ -132,8 +132,14 @@ function getAlbums() {
       let addPanier = document.createElement("div");
       addPanier.setAttribute("class", "addToPanier");
       addPanier.innerHTML =
-        '<button type="button" class="btn-dark btn btn-addPanier" id="addToPanier" onclick="addToPanier()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16"><path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/><path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></button>';
+        '<button value="' +
+        nomFic +
+        '" type="button" class="btn-dark btn btn-addPanier" id="addToPanier" onclick="ajouterPanier(' +
+        idAlbum +
+        ')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16"><path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/><path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></button>';
 
+      // addPanier.innerHTML +=
+      //   '<button class="qte" id="qte-" onclick="qteMoins()">Quantité(-)</button>';
       card.appendChild(addPanier);
 
       preview.append(card);
@@ -141,7 +147,7 @@ function getAlbums() {
       location.reload();
       compteurAffichage--;
     }
-  });
+  }
 }
 
 // -------------------- Fin de la Fonction getAlbums ------------------
@@ -313,7 +319,9 @@ function chercher() {
               let addPanier = document.createElement("div");
               addPanier.setAttribute("class", "addToPanier");
               addPanier.innerHTML =
-                '<button type="button" class="btn-dark btn btn-addPanier" id="addToPanier" onclick="addToPanier()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16"><path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/><path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></button>';
+                '<button type="button" class="btn-dark btn btn-addPanier" id="addToPanier" onclick="ajouterPanier(' +
+                idAlbum +
+                ')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16"><path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/><path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></button>';
 
               card.appendChild(addPanier);
 
@@ -393,7 +401,9 @@ function chercher() {
         let addPanier = document.createElement("div");
         addPanier.setAttribute("class", "addToPanier");
         addPanier.innerHTML =
-          '<button type="button" class="btn-dark btn btn-addPanier" id="addToPanier" onclick="addToPanier()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16"><path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/><path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></button>';
+          '<button type="button" class="btn-dark btn btn-addPanier" id="addToPanier" onclick="ajouterPanier(' +
+          idAlbum +
+          ')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16"><path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/><path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></button>';
 
         card.appendChild(addPanier);
 
@@ -479,7 +489,9 @@ function chercher() {
               let addPanier = document.createElement("div");
               addPanier.setAttribute("class", "addToPanier");
               addPanier.innerHTML =
-                '<button type="button" class="btn-dark btn btn-addPanier" id="addToPanier" onclick="addToPanier()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16"><path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/><path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></button>';
+                '<button type="button" class="btn-dark btn btn-addPanier" id="addToPanier" onclick="ajouterPanier(' +
+                idAlbum +
+                ')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16"><path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/><path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></button>';
 
               card.appendChild(addPanier);
 
@@ -515,57 +527,87 @@ function btnAppelApi() {
     });
 }
 
-function mapToObject(map) {
-  return Object.assign(
-    Object.create(null),
-    ...[...map].map((v) => ({ [v[0]]: v[1] }))
-  );
-}
+// function mapToObject(map) {
+//   return Object.assign(
+//     Object.create(null),
+//     ...[...map].map((v) => ({ [v[0]]: v[1] }))
+//   );
+// }
 
-/*
-  // On transforme la map en objets*/
-console.log(mapToObject(albums));
+// /*
+//   // On transforme la map en objets*/
+// console.log(mapToObject(albums));
 
 // -------------------- Debut de la Fonction addToPanier ------------------
 
-// var code =
+function ajouterPanier(idAlbumparam) {
+  // Le idAlbumParam permet de recuperer l'ID de la map Albums
 
-// function lignePanier(code, qte, prix) {
-//   this.codeArticle = code;
-//   this.qteArticle = qte;
-//   this.prixArticle = prix;
-//   this.ajouterQte = function (qte) {
-//     this.qteArticle += qte;
-//   };
-//   this.getPrixLigne = function () {
-//     var resultat = this.prixArticle * this.qteArticle;
-//     return resultat;
-//   };
-//   this.getCode = function () {
-//     return this.codeArticle;
-//   };
-// };
+  tableau = document.getElementById("tableau");
+  totalPrix = $("#prixTotal");
+  supprime = 1;
 
-// function Panier() {
-//   this.liste = [];
-//   this.ajouterArticle = function (code, qte, prix) {
-//     var index = this.getArticle(code);
-//     if (index == -1) this.liste.push(new lignePanier(code, qte, prix));
-//     else this.liste[index].ajouterQte(qte);
-//   };
-//   this.getPrixPanier = function () {
-//     var total = 0;
-//     for (var i = 0; i < this.liste.lenght; i++)
-//       total += this.liste[i].getPrixLigne();
-//     return total;
-//   };
-//   this.getArticle = function (code) {
-//     for (var i = 0; i < this.liste.lenght; i++)
-//       if (code == this.liste[i].getCode()) return i;
-//     return -1;
-//   };
-//   this.supprimerArticle = function (code) {
-//     var index = this.getArticle(code);
-//     if (index > -1) this.liste.splice(index, 1);
-//   };
-// }
+  for (var [idAlbum, album] of albums.entries()) {
+    if (idAlbum == idAlbumparam) {
+      // console.log("on est sur le bon album: " + album.titre);
+      console.log(album.titre);
+      code = idAlbumparam;
+      console.log(code);
+      prix = album.prix;
+      console.log(prix);
+
+      var existe = false;
+      var quantite = 1;
+      var ligne;
+      //on vérifie s'il y'a une th avec le code qui nous interesse
+      try {
+        ligneexiste = document.getElementById("tr" + code);
+        console.log(ligneexiste);
+        if (ligneexiste != null) {
+          ligne = ligneexiste;
+
+          var quantiteexiste = document.getElementById("Qte" + code);
+          console.log(quantiteexiste);
+          quantite += parseInt(quantiteexiste.innerText);
+          existe = true;
+        } else {
+          ligne = document.createElement("tr");
+          ligne.setAttribute("id", "tr" + code);
+        }
+      } catch {}
+
+      ligne.innerHTML =
+        '<th id="code' +
+        code +
+        '">' +
+        album.titre +
+        "</th>" +
+        '<th id="Qte' +
+        code +
+        '">' +
+        quantite +
+        '</th><th id="PU' +
+        code +
+        '">' +
+        prix +
+        "€</th><th>" +
+        quantite * prix +
+        "€</th>" +
+        '<button id="supprimer-' +
+        code +
+        '" onclick="supprimer(' +
+        "tr" +
+        code +
+        ')" class="btn btn-black">Supprimer</button>';
+
+      if (existe == false) {
+        tableau.appendChild(ligne);
+      }
+    }
+  }
+}
+
+function supprimer(ligne) {
+  var ligneaSupprimer = document.getElementById(ligne);
+  ligne.innerHTML = "";
+}

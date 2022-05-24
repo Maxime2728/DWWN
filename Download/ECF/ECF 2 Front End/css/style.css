@@ -95,6 +95,7 @@ h3 {
   background-color: rgb(0, 47, 255);
   border-color: transparent;
   border-radius: 20px;
+  color: #fff;
 }
 
 .btn-addPanier {
@@ -191,4 +192,8 @@ h3 {
 .card h3 {
   font-weight: bold;
   text-decoration: underline rgb(17, 0, 255);
+}
+
+.contenu {
+  background-color: blue !important;
 }

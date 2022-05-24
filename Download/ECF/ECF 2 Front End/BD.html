@@ -103,9 +103,25 @@
       <p id="api-meteo-p"></p>
     </div>
 
-    <div id="panier">
-      <h3>Votre Panier :</h3>
-    </div>
+    <section class="container">
+      <article class="well form-inline pull-left col-lg-5">
+        <legend class="contenu">Contenu du panier</legend>
+        <table id="tableau" class="table">
+          <thead>
+            <tr>
+              <th>Titre</th>
+              <th>Quantité</th>
+              <th>Prix unitaire</th>
+              <th>Prix de la ligne</th>
+              <th>Supprimer</th>
+            </tr>
+          </thead>
+        </table>
+        <br /><label>Prix du panier total :</label>
+        <label id="prixTotal"></label>
+        <label id="nbreLignes" hidden>0</label>
+      </article>
+    </section>
 
     <!-- Affiche tout les Albums -->
     <div id="preview"></div>
@@ -114,9 +130,10 @@
     <div id="search"></div>
 
     <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
       crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
