@@ -1,0 +1,275 @@
+/*Permet de modifier la navBar*/
+/* body::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+/* } */ 
+
+/* body::-webkit-scrollbar-track {
+  border: 2px solid rgb(161, 161, 161);
+  border-radius: 20px;
+} */
+
+/* body::-webkit-scrollbar-thumb {
+  background-color:  rgb(17, 0, 255); /* color of the scroll thumb */
+  /* border-radius: 20px; roundness of the scroll thumb */
+  /* border: 3px solid lightblue; creates padding around scroll thumb */
+/* } */ 
+
+/* ---------------------------------- GENERAL CSS --------------------------------------- */
+
+*{
+  color: rgb(51, 51, 51);
+}
+
+body {
+  font: 1em sans-serif;
+  padding: 0;
+  margin: 10px;
+  background-image: url("../images/fond-livres-xl.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.centrer{
+  width: 75% !important;
+  margin: auto;
+  border: 3px rgb(255, 230, 0) solid;
+  border-radius: 20px;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+  height: auto;
+  background-color: rgba(187, 187, 187, 0.767) !important;
+}
+
+form {
+  max-width: 300px;
+  margin: 0;
+  padding: 0 5px;
+}
+
+p > label {
+  display: block;
+}
+
+legend {
+  background-color: #000;
+  color: rgb(59, 59, 59);
+  padding: 3px 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea,
+fieldset {
+  /* requis pour composer de manière appropriée les éléments
+     de formulaire sur les navigateurs fondés sur WebKit */
+  -webkit-appearance: none;
+
+  width: 100%;
+  border: 1px solid #333;
+  margin: 0;
+
+  font-family: inherit;
+  font-size: 90%;
+
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+#erreur {
+  color: red;
+}
+
+/* ---------------------------------- METEO API CSS --------------------------------------- */
+
+.appel-api-meteo {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#api-meteo-p {
+  color:  rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* ---------------------------------- BOUTON CHOICES CSS --------------------------------------- */
+
+#boutons-choices {
+  display: grid;
+  grid-template-columns: 25px repeat(3, 1fr) 25px;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+}
+
+#btn-albums {
+  grid-column: 2;
+}
+
+.btn {
+  background-color:  rgb(255, 94, 0);
+  border-color: transparent;
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
+}
+
+.btn:hover {
+  background-color: #fff !important;
+  color:  rgb(255, 94, 0) !important;
+  border-color:  rgb(255, 166, 0);
+}
+
+/* ---------------------------------- PANIER CSS --------------------------------------- */
+
+.btn-addPanier {
+  background-color: rgb(255, 94, 0);
+  color: white;
+  border-radius: 100% !important;
+}
+
+.btn-addPanier:hover {
+  background-color: white !important;
+  color: #000 !important;
+  border-radius: 100% !important;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.contenu {
+  background-color:  rgb(255, 94, 0) !important;
+}
+
+/* ---------------------------------- REFRESH CSS --------------------------------------- */
+
+#refresh {
+  width: 100%;
+  height: 40px;
+  display: grid;
+  grid-template-columns: repeat(5, 40px);
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.refresh {
+  grid-column: 3;
+}
+
+/* ---------------------------------- RECHERCHE CSS --------------------------------------- */
+
+#chercher {
+  margin: auto;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 25px 1fr 25px;
+  grid-template-rows: 2;
+  justify-items: center;
+}
+
+.research {
+  grid-column: 2;
+  justify-items: center;
+  border-radius: 10px;
+  width: 50% !important;
+  height: 30px;
+}
+
+/* ---------------------------------- AFFICHAGE ALBUM CSS --------------------------------------- */
+
+#preview {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#search {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  display: grid;
+  margin: 15px;
+  border: 2px solid rgb(255, 94, 0);
+  background-color: rgb(255, 166, 0);
+  padding: 5px;
+  justify-content: center;
+  text-align: center;
+  width: 250px;
+  border-radius: 10px;
+}
+
+/* ---------------------------------- ECRITURE CSS --------------------------------------- */
+span {
+  font-weight: bold;
+}
+
+.orange{
+  margin-top: 12px;
+  margin-bottom: 10px;
+  color: rgb(255, 208, 0);
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline rgb(255, 255, 255);
+}
+
+.card h3 {
+  font-weight: bold;
+  text-decoration: underline rgb(255, 94, 0);
+}
+
+em{
+  color: rgb(17, 0, 255);
+  font-style: normal;
+  font-weight: bolder;
+}
+
+.top-title-site{
+  color: red;
+}
+
+.top-title-div{
+  border: 2px solid rgb(37, 37, 37);
+  border-radius: 20px;
+  width: 350px;
+  justify-content: center;
+  margin: auto;
+  margin-top: 10px;
+}
+
+/* ---------------------------------- MEDIA QUERIES CSS --------------------------------------- */
+
+@media screen and (max-width : 528px ){
+  .table{
+    font-size: 15px;
+    text-align: center;
+  }
+
+  #api-meteo-p{
+    text-align: center;
+  }
+}
+
+@media (min-width: 992px){
+.col-lg-5 {
+    /* -ms-flex: 0 0 41.666667%; */
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+}

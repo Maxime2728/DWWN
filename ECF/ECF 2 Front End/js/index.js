@@ -210,6 +210,10 @@ function getByAuteurs() {
   }
 }
 
+// -------------------- Fin de la Fonction getAuteurs() ------------------
+
+// -------------------- Debut de la Fonction clearSearch() ------------------
+
 function clearSearch() {
   if (compteurBtn >= 1) {
     $("#search").empty();
@@ -220,11 +224,15 @@ function clearSearch() {
   }
 }
 
+// -------------------- Fin de la Fonction clearSearch() ------------------
+
+// -------------------- Debut de la Fonction refreshPage() ------------------
+
 function refreshPage() {
   location.reload();
 }
 
-// -------------------- Fin de la Fonction getAuteurs ------------------
+// -------------------- Fin de la Fonction refreshPage() ------------------
 
 // -------------------- Debut de la Fonction Chercher() ------------------
 
@@ -284,8 +292,8 @@ function chercher() {
               card.setAttribute("class", "card");
 
               const titleAlbum = document.createElement("div");
-              titleAlbum.setAttribute("class", "top-title");
-              titleAlbum.innerHTML = "<h3>" + album.titre + "</h1>";
+              titleAlbum.setAttribute("class", "top");
+              titleAlbum.innerHTML = "<h3>" + auteurs.get(album.idAuteur).nom + "</h1>";
 
               card.append(titleAlbum);
               /* Création d'un élément div avec la classe corp-de-page puis ajout de la série,
@@ -296,7 +304,7 @@ function chercher() {
                 "<h5><span>" +
                 series.get(album.idSerie).nom +
                 "<br></span> <span> Auteur(s) :</span> " +
-                auteurs.get(album.idAuteur).nom +
+                album.titre +
                 "<br> <span> Prix :</span> " +
                 album.prix +
                 "€</h5>";
@@ -335,7 +343,7 @@ function chercher() {
 
   // // --------------- Fin de la Fonction recherche par Auteurs ---------------
 
-  // // --------------- Début de la fonction recherche par Albums ---------------
+  // // --------------- Début de la fonction recherche par Titre ---------------
   if (getByAlbum == 1) {
     search.innerHTML = "";
     compteurBtn++;
@@ -455,7 +463,7 @@ function chercher() {
 
               const titleAlbum = document.createElement("div");
               titleAlbum.setAttribute("class", "top-title");
-              titleAlbum.innerHTML = "<h3>" + album.titre + "</h1>";
+              titleAlbum.innerHTML = "<h3>" + series.get(album.idSerie).nom + "</h1>";
 
               card.append(titleAlbum);
               /* Création d'un élément div avec la classe corp-de-page puis ajout de la série,
@@ -464,7 +472,7 @@ function chercher() {
               cdp.setAttribute("class", "corp-de-page");
               cdp.innerHTML =
                 "<h5><span>" +
-                series.get(album.idSerie).nom +
+                album.titre +
                 "<br></span> <span> Auteur(s) :</span> " +
                 auteurs.get(album.idAuteur).nom +
                 "<br> <span> Prix :</span> " +
@@ -506,11 +514,11 @@ function chercher() {
 
 // -------------------- Fin de la Fonction Chercher() ------------------
 
-function btnAppelApi() {
+function appelApi() {
   var callBackGetSuccess = function (data) {
     var element = document.getElementById("api-meteo-p");
     element.innerHTML =
-      "La temperature à Évreux est de " + data.main.temp + "°C";
+      "La temperature à Évreux est de <em>" + data.main.temp + "°C</em>";
   };
   var url =
     "https://api.openweathermap.org/data/2.5/weather?q=Evreux,fr&appid=c21a75b667d6f7abb81f118dcf8d4611&units=metric";
@@ -527,17 +535,6 @@ function btnAppelApi() {
     });
 }
 
-// function mapToObject(map) {
-//   return Object.assign(
-//     Object.create(null),
-//     ...[...map].map((v) => ({ [v[0]]: v[1] }))
-//   );
-// }
-
-// /*
-//   // On transforme la map en objets*/
-// console.log(mapToObject(albums));
-
 // -------------------- Debut de la Fonction addToPanier ------------------
 
 function ajouterPanier(idAlbumparam) {
@@ -545,7 +542,6 @@ function ajouterPanier(idAlbumparam) {
 
   tableau = document.getElementById("tableau");
   totalPrix = $("#prixTotal");
-  supprime = 1;
 
   for (var [idAlbum, album] of albums.entries()) {
     if (idAlbum == idAlbumparam) {
@@ -558,7 +554,6 @@ function ajouterPanier(idAlbumparam) {
 
       var existe = false;
       var quantite = 1;
-      var ligne;
       //on vérifie s'il y'a une th avec le code qui nous interesse
       try {
         ligneexiste = document.getElementById("tr" + code);
@@ -590,15 +585,13 @@ function ajouterPanier(idAlbumparam) {
         code +
         '">' +
         prix +
-        "€</th><th>" +
+        '€</th><td id="PL' +
+        code +
+        '">' +
         quantite * prix +
-        "€</th>" +
-        '<button id="supprimer-' +
-        code +
-        '" onclick="supprimer(' +
-        "tr" +
-        code +
-        ')" class="btn btn-black">Supprimer</button>';
+        '€</td>' +
+        '<button type="button" id="supprimer-' +
+      code + '" onclick="supprimer(ligne)" class="btn btn-black">Supprimer</button>';
 
       if (existe == false) {
         tableau.appendChild(ligne);
@@ -608,6 +601,5 @@ function ajouterPanier(idAlbumparam) {
 }
 
 function supprimer(ligne) {
-  var ligneaSupprimer = document.getElementById(ligne);
   ligne.innerHTML = "";
 }

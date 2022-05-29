@@ -14,8 +14,13 @@
     <title>Les BD</title>
   </head>
 
-  <body onload="getAlbums(), btnAppelApi()">
+  <body onload="getAlbums(), appelApi()" >
+      <div class="backgroundImage centrer">
     <header id="en-tete">
+      <div class="top-title-div"> 
+        <h1 class="top-title-site orange">BD Club Original</h1>
+      </div>
+     
       <div class="appel-api-meteo">
         <!-- <input
         type="button"
@@ -25,7 +30,7 @@
       /> -->
         <p id="api-meteo-p"></p>
       </div>
-      <h3>Afficher par :</h3>
+      <h3 class="orange">Afficher par :</h3>
       <div id="boutons-choices">
         <button
           type="button"
@@ -60,7 +65,7 @@
           id="research"
           class="research"
           value=""
-          placeholder="Rechercher..."
+          placeholder="Pour rechercher cliquez sur un bouton au dessus et recherchez ici... (Appuyez sur 'enter')"
           onchange="chercher()"
         />
         <!-- <br />
@@ -70,6 +75,7 @@
       </div>
     </header>
 
+    <section id="centrer"></section>
     <div id="refresh">
       <!-- <p class="cache">T</p> -->
       <button onclick="refreshPage()" class="btn btn-dark refresh">
@@ -112,14 +118,14 @@
               <th>Titre</th>
               <th>Quantité</th>
               <th>Prix unitaire</th>
-              <th>Prix de la ligne</th>
-              <th>Supprimer</th>
+              <th>Prix ligne</th>
+              <th></th>
             </tr>
           </thead>
         </table>
-        <br /><label>Prix du panier total :</label>
+        <!-- <br /><label>Prix total :</label>
         <label id="prixTotal"></label>
-        <label id="nbreLignes" hidden>0</label>
+        <label id="nbreLignes" hidden>0</label> -->
       </article>
     </section>
 
@@ -129,6 +135,7 @@
     <!-- Affiche les elements recherchés -->
     <div id="search"></div>
 
+    </div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
       integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
