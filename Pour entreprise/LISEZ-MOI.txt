@@ -1,0 +1,4 @@
+Bonjour, je n'ai que deux fichiers qui sont des ECF que j'ai réalisés depuis le debut de la formation :
+
+-  Le dossier "Site GTA" est un site statique et basique;
+-  J'ai créer un deuxième site "Les BD de Max", c'est un site dynamique, qui consiste à récuperer une map et afficher les différents éléments selon des recherches.

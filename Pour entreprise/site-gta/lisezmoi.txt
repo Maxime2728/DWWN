@@ -1,0 +1,3 @@
+J'ai utilisé des Media Queries avec max-width pour rendre le site responsive, on peut retrouver les médias queries dans le fichier all.css tout à la fin.
+
+J'ai mis des commentaires pour retrouver quelle class va avec quoi.

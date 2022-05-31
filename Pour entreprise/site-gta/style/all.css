@@ -1,0 +1,491 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: silver;
+}
+
+body{
+    background: url('../images/background-gta-v.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.centrer{
+    width: 70%;
+    margin: auto;
+    border: 4px rgb(255, 123, 0) solid;
+    border-radius: 20px;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    height: auto;
+    background-color: rgb(46, 46, 46) !important;
+}
+
+/* ###### Header/Menu ###### */
+
+.menu-gta{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.menu-top{
+    font-size: 30px !important;
+    color: rgb(255, 255, 255) !important;
+    padding-right: 25px;
+    font-family: 'Carter One', cursive;
+    border-right: 2px rgb(255, 138, 3) solid;
+}
+
+.menu-color a{
+    color: rgb(255, 138, 3) !important;
+    font-family: 'Fredoka One', cursive;
+    white-space: normal;
+    text-align: center;
+    border: 4px rgba(255, 138, 3, 0.4) solid;
+    border-radius: 20px;
+}
+
+.menu-color a:hover{
+    color: white !important;
+    border: 4px white solid;
+}
+
+.navbar{
+    background-color: rgb(26, 26, 26) !important;
+    border-radius: 10px !important;
+    /* border: 2px rgba(255, 138, 3, 0.7) solid; */
+}
+
+a.active{
+    color: rgb(189, 189, 189) !important;
+}
+
+/* ###### Images en haut ###### */
+
+.img-index{
+    width: 50%;
+    display: flex;
+    justify-items: center;
+    margin: auto;
+}
+
+/* ###### Sections ###### */
+
+.titre{
+    margin-top: 50px;
+    justify-self: center;
+    color: silver;
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+}
+
+/* ###### Paragraphes/Citations ###### */
+
+p{
+    color: rgb(238, 238, 238);
+    font-family: 'Karla', sans-serif;
+    font-size: 19px;
+}
+
+p a{
+    color: orange;
+}
+
+p a:active{
+    color: white;
+}
+
+p a:hover{
+    color: white;
+}
+
+cite{
+    justify-self: center;
+    font-size: 20px;
+    font-style: normal;
+}
+
+cite a{
+    color: orange;
+    font-weight: bolder;
+}
+
+cite a:hover{
+    color: white;
+}
+
+cite a:active{
+    color: white;
+}
+
+/* ###### Photos ##### */
+
+.titre{
+    margin-top: 30px;
+    justify-self: center;
+    color: silver;
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.second-s img{
+    width: 70%;
+    justify-self: center;
+    margin-top: 20px;
+}
+
+/* ###### Tableaux ###### */
+
+.tab-c{
+    color: rgb(238, 238, 238);
+    font-family: 'Karla', sans-serif;
+    font-size: 19px;
+    border: 2px orange solid;
+}
+
+/* ###### Footer ###### */
+
+footer{
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.bouton-color{
+    background-color: orange !important;
+    border-color: orange !important;
+    width: 200px;
+    color: rgb(26, 26, 26) !important;
+}
+
+.fourd-s{
+    display: grid;
+    grid-template-columns: 10px 1fr 1fr 1fr 10px;
+    grid-template-rows: 50px auto;
+}
+
+.copy{
+    grid-column: 2;
+    grid-row: 1/3;
+    margin: auto;
+    margin-bottom: 0px;
+}
+
+.r-debut{
+    grid-column: 3;
+    grid-row: 1/3;
+}
+
+.jeu{
+    grid-column: 4;
+
+}
+/* ######## Font Family ######### 
+font-family: 'Bebas Neue', cursive;
+font-family: 'Carter One', cursive;
+font-family: 'Fredoka One', cursive;
+font-family: 'Rock Salt', cursive;
+font-family: 'Karla', sans-serif;
+
+*/
+
+/* ###### Media Queries ##### */
+
+/* Pour les ecrans ayant une résolution de - de 1386px */
+
+@media screen and (max-width: 1386px) { 
+    .centrer{
+        width: 80%;
+    }
+
+    .menu-gta a{
+        font-size: 18px;
+    }
+
+    .navbar-toggler-icon{
+        background-color: orange;
+        background-image: url('../images/list.svg') !important;
+    }
+
+    .un{
+        grid-column: 2;
+    }
+
+    .first-s p{
+        font-size: 20px;
+    }
+
+    .cards{
+        width: 285px !important;
+        box-shadow: none !important;
+    }
+
+    cite{
+        font-size: 13px;
+    }
+
+    .img-index{
+        width: 100%;
+    }
+}
+
+/* Pour les ecrans ayant une résolution de - de 912px */
+
+@media screen and (max-width: 912px) {
+    .first-s{
+        grid-template-columns: 20px 1fr 20px;
+        grid-template-rows: repeat(5, auto);
+        margin: auto;
+    }
+
+    .un{
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .deux{
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .trois{
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .quatre{
+        grid-column: 2;
+        grid-row: 4;
+    }
+
+    .cinq{
+        grid-column: 2;
+        grid-row: 5;
+    }
+
+    .cards{
+        width: 400px !important;
+        box-shadow: none !important;
+        justify-self: center;
+        align-content: center;
+    }
+    .fourd-s{
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+}
+
+/* Pour les ecrans ayant une résolution de - de 830px */
+
+@media screen and (max-width: 830px) {
+
+    .first-s{
+        grid-template-columns: 20px 1fr 20px;
+        grid-template-rows: repeat(5, auto);
+        margin: auto;
+    }
+
+    .un{
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .deux{
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .trois{
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .quatre{
+        grid-column: 2;
+        grid-row: 4;
+    }
+
+    .cinq{
+        grid-column: 2;
+        grid-row: 5;
+    }
+
+    .cards{
+        width: 500px !important;
+        box-shadow: none !important;
+        justify-self: center;
+        align-content: center;
+    }
+
+    cite{
+        font-size: 13px;
+    }
+
+    .third-p{
+        text-align: center;
+    }
+
+    p{
+        font-size: 16px;
+    }
+}
+
+/* Pour les ecrans ayant une résolution de - de 624px */
+
+@media screen and (max-width: 624px) {
+    .container-fluid{
+        width: 390px !important;
+    }
+
+    .first-s{
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: left;
+        padding-left: 5px;
+        padding-right: 5px;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .first-s p{
+        font-size: 16px;
+    }
+
+    .cards{
+        width: 285px !important;
+        box-shadow: none !important;
+        justify-content: center;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
+}
+
+/* Pour les ecrans ayant une résolution de - de 500px */
+
+@media screen and (max-width: 500px) {
+
+    .container-fluid{
+        width: 290px !important;
+    }
+
+    .menu-top{
+        font-size: 20px !important;
+        text-align: center;
+        margin: auto;
+    }
+}
+
+/* Pour les ecrans ayant une résolution de - de 380px */
+
+@media screen and (max-width: 380px) {
+
+    .container-fluid{
+        width: 280px !important;
+    }
+
+    .first-s{
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: left;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .first-s p{
+        font-size: 16px;
+    }
+
+    .cards{
+        width: 285px !important;
+        box-shadow: none !important;
+    }
+
+    .menu-top{
+        font-size: 20px !important;
+        text-align: center;
+        margin: auto;
+    }
+
+    
+    
+}
+
+/* Pour les ecrans ayant une résolution de - de 360px */
+
+@media screen and (max-width: 360px) {
+
+    .container-fluid{
+        width: 250px !important;
+    }
+
+    .menu-top{
+        font-size: 20px !important;
+        text-align: center;
+        margin: auto;
+    }
+    
+    .first-s{
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: left;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .first-s p{
+        font-size: 16px;
+    }
+
+    .cards{
+        width: 250px !important;
+        box-shadow: none !important;
+    }    
+}
+
+/* Pour les ecrans ayant une résolution de - de 290px */
+
+@media screen and (max-width: 290px) {
+
+    .container-fluid{
+        width: 190px !important;
+    }
+
+    .menu-top{
+        font-size: 14px !important;
+        text-align: center;
+        margin: auto;
+    }
+
+    .lmdgta{
+        font-size: 20px;
+        text-align: center;
+        margin: auto;
+    }
+    
+    .first-s{
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: left;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .first-s p{
+        font-size: 16px;
+    }
+
+    .cards{
+        width: 190px !important;
+        box-shadow: none !important;
+    }    
+
+}
+
