@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{8287DB45-53A7-4885-9DC6-ADC13BAA1A0F}" Label="" LastModificationDate="1654160086" Name="ModeleConceptuelDonnees_1" Objects="112" Symbols="25" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" signature="CDM_DATA_MODEL_XML" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{8287DB45-53A7-4885-9DC6-ADC13BAA1A0F}" Label="" LastModificationDate="1654161938" Name="ModeleConceptuelDonnees_1" Objects="111" Symbols="24" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" signature="CDM_DATA_MODEL_XML" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -1173,7 +1173,7 @@ Shadow=0</a:DisplayPreferences>
 <o:AssociationLinkSymbol Id="o5">
 <a:CreationDate>1654091455</a:CreationDate>
 <a:ModificationDate>1654091455</a:ModificationDate>
-<a:Rect>((19876,15524), (34726,23979))</a:Rect>
+<a:Rect>((19876,15524), (34688,23979))</a:Rect>
 <a:ListOfPoints>((32926,23979),(32926,15524),(19876,15524))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1194,7 +1194,7 @@ CARD 0 Arial,8,N</a:FontList>
 <o:AssociationLinkSymbol Id="o9">
 <a:CreationDate>1654091455</a:CreationDate>
 <a:ModificationDate>1654091455</a:ModificationDate>
-<a:Rect>((5026,7237), (19876,15524))</a:Rect>
+<a:Rect>((5064,7237), (19876,15524))</a:Rect>
 <a:ListOfPoints>((6826,7237),(6826,15524),(19876,15524))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1215,7 +1215,7 @@ CARD 0 Arial,8,N</a:FontList>
 <o:AssociationLinkSymbol Id="o12">
 <a:CreationDate>1654091878</a:CreationDate>
 <a:ModificationDate>1654091878</a:ModificationDate>
-<a:Rect>((-13874,5737), (-2699,15340))</a:Rect>
+<a:Rect>((-13874,5737), (-2661,15340))</a:Rect>
 <a:ListOfPoints>((-2699,5737),(-2699,14174),(-13874,14174))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1236,7 +1236,7 @@ CARD 0 Arial,8,N</a:FontList>
 <o:AssociationLinkSymbol Id="o15">
 <a:CreationDate>1654091878</a:CreationDate>
 <a:ModificationDate>1654091878</a:ModificationDate>
-<a:Rect>((-25049,14174), (-13874,22612))</a:Rect>
+<a:Rect>((-25087,14174), (-13874,22612))</a:Rect>
 <a:ListOfPoints>((-25049,22612),(-25049,14174),(-13874,14174))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1299,7 +1299,7 @@ CARD 0 Arial,8,N</a:FontList>
 <o:AssociationLinkSymbol Id="o24">
 <a:CreationDate>1654094439</a:CreationDate>
 <a:ModificationDate>1654158530</a:ModificationDate>
-<a:Rect>((38007,-14963), (39807,3599))</a:Rect>
+<a:Rect>((38045,-14963), (39845,3599))</a:Rect>
 <a:ListOfPoints>((39807,-14963),(39807,-3154),(38382,-3154),(38382,3599))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1320,7 +1320,7 @@ CARD 0 Arial,8,N</a:FontList>
 <o:AssociationLinkSymbol Id="o28">
 <a:CreationDate>1654094439</a:CreationDate>
 <a:ModificationDate>1654094439</a:ModificationDate>
-<a:Rect>((37444,3599), (39244,22312))</a:Rect>
+<a:Rect>((37406,3599), (39206,22312))</a:Rect>
 <a:ListOfPoints>((37444,22312),(37444,3599))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1383,8 +1383,8 @@ CARD 0 Arial,8,N</a:FontList>
 <o:AssociationLinkSymbol Id="o36">
 <a:CreationDate>1654159693</a:CreationDate>
 <a:ModificationDate>1654159693</a:ModificationDate>
-<a:Rect>((-6965,-11775), (-2961,-5550))</a:Rect>
-<a:ListOfPoints>((-6909,-11775),(-6074,-8177),(-2961,-8177),(-2961,-5550))</a:ListOfPoints>
+<a:Rect>((-7809,-11775), (-2961,-5550))</a:Rect>
+<a:ListOfPoints>((-6909,-11775),(-6909,-8177),(-2961,-8177),(-2961,-5550))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -2161,11 +2161,11 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Entity>
 <o:Entity Id="o46">
 <a:ObjectID>7FF17EBB-7517-4F9B-BD65-0690CD665600</a:ObjectID>
-<a:Name>T_D_EXPEDITION_EXP</a:Name>
-<a:Code>T_D_EXPEDITION_EXP</a:Code>
+<a:Name>T_D_SHIPPING_EXP</a:Name>
+<a:Code>T_D_SHIPPING_EXP</a:Code>
 <a:CreationDate>1654091025</a:CreationDate>
 <a:Creator>27010-34-03</a:Creator>
-<a:ModificationDate>1654160086</a:ModificationDate>
+<a:ModificationDate>1654161703</a:ModificationDate>
 <a:Modifier>bizea</a:Modifier>
 <c:Identifiers>
 <o:Identifier Id="o128">
@@ -2587,12 +2587,12 @@ LABL 0 Arial,8,N</a:FontList>
 </o:DataItem>
 <o:DataItem Id="o131">
 <a:ObjectID>38A5E7B7-E8D2-4F0F-B3A3-7581C69C2DA8</a:ObjectID>
-<a:Name>EXP_Expedition_Date</a:Name>
-<a:Code>EXP_EXPEDITION_DATE</a:Code>
+<a:Name>EXP_Shipping_Date</a:Name>
+<a:Code>EXP_SHIPPING_DATE</a:Code>
 <a:CreationDate>1654091051</a:CreationDate>
 <a:Creator>27010-34-03</a:Creator>
-<a:ModificationDate>1654091263</a:ModificationDate>
-<a:Modifier>27010-34-03</a:Modifier>
+<a:ModificationDate>1654161938</a:ModificationDate>
+<a:Modifier>bizea</a:Modifier>
 <a:DataType>D</a:DataType>
 </o:DataItem>
 <o:DataItem Id="o133">

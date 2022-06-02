@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{8287DB45-53A7-4885-9DC6-ADC13BAA1A0F}" Label="" LastModificationDate="1654160086" Name="ModeleConceptuelDonnees_1" Objects="111" Symbols="24" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" signature="CDM_DATA_MODEL_XML" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{8287DB45-53A7-4885-9DC6-ADC13BAA1A0F}" Label="" LastModificationDate="1654166210" Name="ModeleConceptuelDonnees_1" Objects="111" Symbols="24" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" signature="CDM_DATA_MODEL_XML" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -2161,11 +2161,11 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Entity>
 <o:Entity Id="o46">
 <a:ObjectID>7FF17EBB-7517-4F9B-BD65-0690CD665600</a:ObjectID>
-<a:Name>T_D_EXPEDITION_EXP</a:Name>
-<a:Code>T_D_EXPEDITION_EXP</a:Code>
+<a:Name>T_D_SHIPPING_SHP</a:Name>
+<a:Code>T_D_SHIPPING_SHP</a:Code>
 <a:CreationDate>1654091025</a:CreationDate>
 <a:Creator>27010-34-03</a:Creator>
-<a:ModificationDate>1654160086</a:ModificationDate>
+<a:ModificationDate>1654166210</a:ModificationDate>
 <a:Modifier>bizea</a:Modifier>
 <c:Identifiers>
 <o:Identifier Id="o128">
@@ -2587,22 +2587,22 @@ LABL 0 Arial,8,N</a:FontList>
 </o:DataItem>
 <o:DataItem Id="o131">
 <a:ObjectID>38A5E7B7-E8D2-4F0F-B3A3-7581C69C2DA8</a:ObjectID>
-<a:Name>EXP_Expedition_Date</a:Name>
-<a:Code>EXP_EXPEDITION_DATE</a:Code>
+<a:Name>SHP_Shipping_Date</a:Name>
+<a:Code>SHP_SHIPPING_DATE</a:Code>
 <a:CreationDate>1654091051</a:CreationDate>
 <a:Creator>27010-34-03</a:Creator>
-<a:ModificationDate>1654091263</a:ModificationDate>
-<a:Modifier>27010-34-03</a:Modifier>
+<a:ModificationDate>1654166210</a:ModificationDate>
+<a:Modifier>bizea</a:Modifier>
 <a:DataType>D</a:DataType>
 </o:DataItem>
 <o:DataItem Id="o133">
 <a:ObjectID>D8F96663-DEB2-4051-84A9-774257A6FFA5</a:ObjectID>
-<a:Name>EXP_Shipping_Costs</a:Name>
-<a:Code>EXP_SHIPPING_COSTS</a:Code>
+<a:Name>SHP_Shipping_Costs</a:Name>
+<a:Code>SHP_SHIPPING_COSTS</a:Code>
 <a:CreationDate>1654091051</a:CreationDate>
 <a:Creator>27010-34-03</a:Creator>
-<a:ModificationDate>1654091314</a:ModificationDate>
-<a:Modifier>27010-34-03</a:Modifier>
+<a:ModificationDate>1654166210</a:ModificationDate>
+<a:Modifier>bizea</a:Modifier>
 <a:DataType>MN5,3</a:DataType>
 <a:Length>5</a:Length>
 <a:Precision>3</a:Precision>
@@ -2619,11 +2619,11 @@ LABL 0 Arial,8,N</a:FontList>
 </o:DataItem>
 <o:DataItem Id="o134">
 <a:ObjectID>EE18380A-7FC0-41FA-8C34-B0C993EED12A</a:ObjectID>
-<a:Name>EXP_Tracking_Number</a:Name>
-<a:Code>EXP_TRACKING_NUMBER</a:Code>
+<a:Name>SHP_Tracking_Number</a:Name>
+<a:Code>SHP_TRACKING_NUMBER</a:Code>
 <a:CreationDate>1654158824</a:CreationDate>
 <a:Creator>bizea</a:Creator>
-<a:ModificationDate>1654158943</a:ModificationDate>
+<a:ModificationDate>1654166210</a:ModificationDate>
 <a:Modifier>bizea</a:Modifier>
 <a:DataType>A20</a:DataType>
 <a:Length>20</a:Length>
