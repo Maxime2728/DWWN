@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?PowerDesigner signature="Workspace" version="15.1.0.2850"?>
+<!-- Veuillez ne pas modifier ce fichier -->
+
+<Workspace>
+	<Local Expanded="Yes">
+		<Model Expanded="Yes" ID="{90F4CF3D-9AD0-45C3-A437-A87FC9665973}" Loaded="No" Name="ModeleConceptuelDonnees_1" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="biere-mcd.mcd"/>
+		<Model Expanded="Yes" ID="{E328628C-D108-4521-B590-42C6B4047120}" Loaded="No" Name="ModeleConceptuelDonnees_2" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="restaurant-mcd.mcd"/>
+		<Model Expanded="Yes" ID="{EDF2D287-AF5D-4817-8189-E124E232DF0F}" Name="ModeleConceptuelDonnees_1" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="club-tourisme-mcd.mcd"/>
+		<Model Expanded="Yes" ID="{90321A01-B2E0-4D82-B76C-84685332BC0B}" Name="oeuvre-d-art-mcd" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="oeuvre-d-art-mcd.mcd"/>
+		<Model Expanded="Yes" ID="{BB0AA746-592F-4B20-B38B-FC12E988ABC5}" Name="cas-niche-mcd" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="cas-niche-mcd.mcd"/>
+		<Model Expanded="Yes" ID="{C54C40E8-F003-4795-95F7-767A1199DE5D}" Name="comite-entreprise-mcd" OpenedReadOnly="Yes" Selected="Yes" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="comite-entreprise-mcd.mcd"/>
+		<Model Expanded="Yes" ID="{9EA7F437-5827-4008-B657-6FC517E740FA}" Name="ModeleConceptuelDonnees_2" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="box-mcd.mcd"/>
+		<Model Expanded="Yes" ID="{A99F0A86-9EB6-41AD-AA00-73936640A00C}" Name="ModeleConceptuelDonnees_3" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="auto-ecole-mcd.mcd"/>
+		<Model Expanded="Yes" ID="{C54C40E8-F003-4795-95F7-767A1199DE5D}" Name="comite-entreprise-mcd" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="comite-entreprise-mcd.mcd"/>
+		<Model Expanded="Yes" ID="{A99F0A86-9EB6-41AD-AA00-73936640A00C}" Name="ModeleConceptuelDonnees_3" OpenedReadOnly="Yes" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="auto-ecole-mcd.mcd"/>
+		<Model Expanded="Yes" ID="{D6E1D990-2742-4DC9-8C9F-734228890C2E}" Name="agence-immo-mcd" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="agence-immo-mcd.mcd"/>
+	</Local>
+	<BrowserModule Name="Référentiel"/>
+</Workspace>
