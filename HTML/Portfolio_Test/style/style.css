@@ -6,6 +6,7 @@
 
 body{
     background-color: black !important;
+    
 }
 
 #centrer{
@@ -15,6 +16,7 @@ body{
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 15px;
+    background-image: url(../images/background1.png);
 }
 
 .en-tete{
@@ -30,15 +32,17 @@ body{
     color: red;
     font-weight: bolder;
     font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .titre.en-tete{
-    color: rgb(219, 219, 219);
+    color: red;
     font-family: 'Bungee Shade', cursive;
 }
 
 .titre.en-tete:hover{
-    color: red;
+    color: white;
 }
 
 .background{

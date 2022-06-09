@@ -1,0 +1,8 @@
+#centrer{
+    width: 52px;
+    border: 2px black solid;
+}
+
+.modal-lg{
+    max-width: 90% !important;
+}
