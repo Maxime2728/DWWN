@@ -1,0 +1,33 @@
+Réponse 1 : 
+
+SELECT CompanyName, ContactName, ContactTitle, Country, Phone FROM customers WHERE Country = 'France';
+
+                          -------------------------------------------------
+
+Réponse 2 : 
+
+SELECT ProductName, UnitPrice, SupplierID FROM products WHERE SupplierID = 1;
+
+                          -------------------------------------------------
+
+Réponse 3 :
+
+SELECT CompanyName, COUNT(*) AS nbr_produits
+FROM products JOIN suppliers ON products.SupplierID=suppliers.SupplierID
+WHERE country = 'France'
+GROUP BY CompanyName
+ORDER BY nbr_produits DESC;
+
+                          -------------------------------------------------
+
+Réponse 4 : 
+
+SELECT CompanyName, COUNT(*) AS nbrCommandes
+FROM customers JOIN orders ON customers.CustomerID = orders.CustomerID
+WHERE Country = 'France' 
+GROUP by CompanyName
+HAVING COUNT(*)>10;
+
+                          -------------------------------------------------
+
+Réponse 5 :
