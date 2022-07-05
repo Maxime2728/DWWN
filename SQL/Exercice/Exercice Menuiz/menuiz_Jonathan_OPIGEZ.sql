@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 -- Base de données : `menuiz`
 --
 CREATE DATABASE IF NOT EXISTS `menuiz-Jo` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `menuiz`;
+USE `menuiz-Jo`;
 
 -- --------------------------------------------------------
 
